@@ -4,9 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>MMT — Portfolio</title>
-  <meta name="description" content="Portfolio de MMT — projets, compétences et contact pour recruteurs." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta name="description" content="Portfolio professionnel de MMT — développeur, admin systèmes & créateur 2D/3D." />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -14,7 +12,7 @@
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="#">MMT<span class="brand-dot">.</span></a>
-      <nav class="nav" id="nav">
+      <nav class="nav" id="nav" aria-label="Navigation principale">
         <a href="#projects">Projets</a>
         <a href="#about">À propos</a>
         <a href="#skills">Compétences</a>
@@ -30,11 +28,12 @@
       <div class="container hero-grid">
         <div class="hero-text">
           <h1>Bonjour, je suis <strong>MMT</strong></h1>
-          <p>Développeur web / Portfolio professionnel — je crée des sites performants, accessibles et esthétiques pour des produits et entreprises.</p>
+          <p class="lead">Développeur web & desktop, administrateur systèmes/réseaux, et créatif 2D/3D — je conçois des solutions fiables et esthétiques, optimisées pour la production et l'usage professionnel.</p>
           <p class="hero-cta">
             <a class="btn-primary" href="#contact">Me contacter</a>
             <a class="btn-ghost" href="#projects">Voir mes projets</a>
           </p>
+
           <ul class="quick-info">
             <li><strong>Localisation</strong> : Mali</li>
             <li><strong>Disponibilité</strong> : Ouvert aux opportunités</li>
@@ -42,7 +41,8 @@
         </div>
 
         <div class="hero-card" role="region" aria-label="Aperçu du portfolio">
-          <img alt="Aperçu du portfolio" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" />
+          <!-- IMAGE À REMPLACER: hero.jpg -->
+          <div class="img-placeholder">[À REMPLACER — IMAGE HERO : hero.jpg → placer dans assets/hero.jpg]</div>
         </div>
       </div>
     </section>
@@ -50,45 +50,105 @@
     <!-- Projects -->
     <section id="projects" class="section">
       <div class="container">
-        <h2 class="section-title">Projets récents</h2>
-        <p class="section-sub">Sélection de travaux techniques et visuels — cliqez pour plus de détails.</p>
+        <h2 class="section-title">Projets sélectionnés</h2>
+        <p class="section-sub">Exemples représentatifs de mes réalisations techniques et créatives. Cliquez sur "Voir" pour un résumé.</p>
 
         <div class="projects-grid" id="projectsGrid">
-          <!-- Exemple de carte projet (duplique / modifie pour ajouter les tiens) -->
-          <article class="card project" data-tech="web" data-title="Interface CV dynamique" data-desc="Site responsive affichant CV animé, interactions JS et SEO.">
-            <img src="https://images.unsplash.com/photo-1526378720949-8a1f9b8b9c28?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Interface CV dynamique">
+          <!-- 1) Application de gestion de notes (Django) -->
+          <article class="card project" data-tech="django" data-title="Système de gestion de notes — ISTAG" data-desc="Application web complète (Django) pour gérer étudiants, notes, semestres, et exports PDF/CSV. Authentification, rôles enseignants/admin, API REST.">
+            <!-- IMAGE À REMPLACER: istag_app.png -->
+            <div class="img-placeholder">[À REMPLACER — ISTAG_APP : assets/istag_app.png]</div>
             <div class="card-body">
-              <h3>Interface CV dynamique</h3>
-              <p class="card-tags">HTML • CSS • JavaScript</p>
+              <h3>Système de gestion de notes — ISTAG</h3>
+              <p class="card-tags">Python • Django • HTML • CSS • JavaScript • PostgreSQL</p>
               <div class="card-actions">
                 <button class="btn-sm view-btn">Voir</button>
-                <a class="btn-sm ghost" href="#" target="_blank" rel="noopener">Code</a>
+                <a class="btn-sm ghost" href="#" target="_blank" rel="noopener">Repo</a>
               </div>
             </div>
           </article>
 
-          <article class="card project" data-tech="app" data-title="Dashboard Analytique" data-desc="Dashboard performant avec graphiques et composants réutilisables.">
-            <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Dashboard Analytique">
+          <!-- 2) Logiciels console en C -->
+          <article class="card project" data-tech="c" data-title="Outils console en C" data-desc="Suite d'utilitaires console (C) : parsers, outils de gestion de fichiers, algorithmes optimisés pour ressources limitées.">
+            <!-- IMAGE À REMPLACER: c_console.png -->
+            <div class="img-placeholder">[À REMPLACER — C_CONSOLE : assets/c_console.png]</div>
             <div class="card-body">
-              <h3>Dashboard Analytique</h3>
-              <p class="card-tags">React • API • Charts</p>
+              <h3>Logiciels console (C)</h3>
+              <p class="card-tags">C • Makefile • Optimisation mémoire</p>
               <div class="card-actions">
                 <button class="btn-sm view-btn">Voir</button>
-                <a class="btn-sm ghost" href="#" target="_blank" rel="noopener">Code</a>
+                <a class="btn-sm ghost" href="#" target="_blank" rel="noopener">Repo</a>
               </div>
             </div>
           </article>
 
-          <!-- PLACEHOLDER: ajoute d'autres projets ici -->
+          <!-- 3) Arts visuels 2D -->
+          <article class="card project" data-tech="art2d" data-title="Créations 2D & Motion" data-desc="Travaux en After Effects & Photoshop : animations, motion design, posters, et assets UI/marketing.">
+            <!-- IMAGE À REMPLACER: art_2d.png -->
+            <div class="img-placeholder">[À REMPLACER — ART_2D : assets/art_2d.png]</div>
+            <div class="card-body">
+              <h3>Arts visuels — 2D / Motion</h3>
+              <p class="card-tags">After Effects • Photoshop • Motion design</p>
+              <div class="card-actions">
+                <button class="btn-sm view-btn">Voir</button>
+                <a class="btn-sm ghost" href="#" target="_blank" rel="noopener">Portfolio</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 4) Projets 3D -->
+          <article class="card project" data-tech="art3d" data-title="Projets 3D (Maya / Substance)" data-desc="Modélisation et texturing (Maya, Substance Painter) — assets 3D, rendu, optimisation pour pipeline." >
+            <!-- IMAGE À REMPLACER: art_3d.png -->
+            <div class="img-placeholder">[À REMPLACER — ART_3D : assets/art_3d.png]</div>
+            <div class="card-body">
+              <h3>3D — Modélisation & texturing</h3>
+              <p class="card-tags">Autodesk Maya • Substance Painter • Rendu</p>
+              <div class="card-actions">
+                <button class="btn-sm view-btn">Voir</button>
+                <a class="btn-sm ghost" href="#" target="_blank" rel="noopener">Galerie</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 5) Administration systèmes & serveurs -->
+          <article class="card project" data-tech="sysadmin" data-title="Infrastructure & serveurs (Linux)" data-desc="Mise en place de serveurs Web, DNS, DHCP, PAT, NAS; scripts d'automatisation; sauvegarde et surveillance." >
+            <!-- IMAGE À REMPLACER: sysadmin.png -->
+            <div class="img-placeholder">[À REMPLACER — SYSADMIN : assets/sysadmin.png]</div>
+            <div class="card-body">
+              <h3>Admin Systèmes / Réseaux</h3>
+              <p class="card-tags">Linux • Nginx • BIND • DHCP • NAS</p>
+              <div class="card-actions">
+                <button class="btn-sm view-btn">Voir</button>
+                <a class="btn-sm ghost" href="#" target="_blank" rel="noopener">Docs</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 6) Optimisation Windows & gestion ressources -->
+          <article class="card project" data-tech="windows" data-title="Optimisation & maintenance Windows" data-desc="Optimisation des ressources, gestion utilisateurs & droits, scripts d'automatisation pour machines peu performantes." >
+            <!-- IMAGE À REMPLACER: windows_opt.png -->
+            <div class="img-placeholder">[À REMPLACER — WINDOWS_OPT : assets/windows_opt.png]</div>
+            <div class="card-body">
+              <h3>Optimisation Windows</h3>
+              <p class="card-tags">Windows • PowerShell • Optimisation • Administrations clients</p>
+              <div class="card-actions">
+                <button class="btn-sm view-btn">Voir</button>
+                <a class="btn-sm ghost" href="#" target="_blank" rel="noopener">Guides</a>
+              </div>
+            </div>
+          </article>
         </div>
 
         <div class="projects-controls">
           <label>Filtre :
             <select id="filterTech">
               <option value="all">Tous</option>
-              <option value="web">Web</option>
-              <option value="app">App</option>
-              <option value="design">Design</option>
+              <option value="django">Django</option>
+              <option value="c">C (console)</option>
+              <option value="art2d">2D</option>
+              <option value="art3d">3D</option>
+              <option value="sysadmin">Sysadmin</option>
+              <option value="windows">Windows</option>
             </select>
           </label>
         </div>
@@ -100,24 +160,25 @@
       <div class="container about-grid">
         <div>
           <h2>À propos</h2>
-          <p>Je suis développeur front-end avec une sensibilité UI/UX. J'aime transformer des idées en expériences numériques claires et rapides. J'apporte une attention particulière à l'accessibilité, à la performance et au code maintenable.</p>
+          <p>Ingénieur généraliste orienté informatique : développement logiciel & web, administration systèmes/réseaux, et création numérique. J'équilibre rigueur technique et sens esthétique pour livrer des projets fiables, maintenables et optimisés.</p>
           <ul>
-            <li>Formation : Informatique / Auto-didacte</li>
-            <li>Langues : Français & Anglais</li>
+            <li><strong>Projets clés</strong> : Système de gestion ISTAG (Django), suite d'outils C, pipelines 2D/3D.</li>
+            <li><strong>Formations</strong> : Informatique & auto-formation continue.</li>
+            <li><strong>Langues</strong> : Français & Anglais.</li>
           </ul>
         </div>
         <div class="about-stats">
           <div class="stat">
             <strong>10+</strong>
-            <span>Projets</span>
+            <span>Projets réalisés</span>
           </div>
           <div class="stat">
-            <strong>5+</strong>
-            <span>Clients / Recruteurs satisfaits</span>
+            <strong>Infra</strong>
+            <span>Web, DNS, DHCP, NAS</span>
           </div>
           <div class="stat">
-            <strong>3ms</strong>
-            <span>Temps de chargement optimisé</span>
+            <strong>2D/3D</strong>
+            <span>Motion & assets 3D</span>
           </div>
         </div>
       </div>
@@ -129,20 +190,34 @@
         <h2 class="section-title">Compétences</h2>
         <div class="skills-grid">
           <div class="skill">
-            <h4>HTML & CSS</h4>
-            <div class="meter"><span style="width:95%"></span></div>
+            <h4>Web / Frontend</h4>
+            <div class="meter"><span style="width:92%"></span></div>
+            <small>HTML • CSS • JavaScript • React (bases)</small>
           </div>
           <div class="skill">
-            <h4>JavaScript</h4>
+            <h4>Backend / Django</h4>
+            <div class="meter"><span style="width:88%"></span></div>
+            <small>Python • Django • REST • PostgreSQL</small>
+          </div>
+          <div class="skill">
+            <h4>Langage natif</h4>
             <div class="meter"><span style="width:85%"></span></div>
+            <small>C (outils console, optimisation)</small>
           </div>
           <div class="skill">
-            <h4>React / Frontend</h4>
-            <div class="meter"><span style="width:80%"></span></div>
+            <h4>Admin Systèmes & Réseaux</h4>
+            <div class="meter"><span style="width:90%"></span></div>
+            <small>Linux servers, Nginx, BIND, DHCP, NAS, Active Directory</small>
           </div>
           <div class="skill">
-            <h4>UI & Prototypage</h4>
-            <div class="meter"><span style="width:75%"></span></div>
+            <h4>Arts visuels 2D/3D</h4>
+            <div class="meter"><span style="width:82%"></span></div>
+            <small>After Effects • Photoshop • Maya • Substance Painter</small>
+          </div>
+          <div class="skill">
+            <h4>Optimisation Windows</h4>
+            <div class="meter"><span style="width:86%"></span></div>
+            <small>PowerShell, gestion utilisateurs, optimisation ressources</small>
           </div>
         </div>
       </div>
@@ -153,11 +228,12 @@
       <div class="container contact-grid">
         <div>
           <h2>Contact</h2>
-          <p>Envie d’échanger ? Laisse un message ou envoie directement un e-mail.</p>
+          <p>Pour toute proposition, recrutement ou collaboration, contacte-moi. J'accepte les entretiens techniques et démonstrations de projets sur demande.</p>
           <ul class="contact-list">
             <li><strong>Email</strong> : <a href="mailto:ton-email@example.com">ton-email@example.com</a></li>
             <li><strong>Téléphone</strong> : +223 00 00 00 00</li>
             <li><strong>LinkedIn</strong> : <a href="#" target="_blank">Ton profil</a></li>
+            <li><strong>GitHub</strong> : <a href="https://github.com/mmt17079-stack" target="_blank">mmt17079-stack</a></li>
           </ul>
         </div>
         <form class="contact-form" onsubmit="handleContact(event)" aria-label="Formulaire de contact">
@@ -185,7 +261,7 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>&copy; <span id="year"></span> MMT — Portfolio. <small>Site optimisé pour les recruteurs.</small></p>
+      <p>&copy; <span id="year"></span> MMT — Portfolio. <small>Optimisé pour recruteurs et démonstrations techniques.</small></p>
       <p class="footer-links">
         <a href="#projects">Projets</a>
         <a href="#contact">Contact</a>
@@ -199,6 +275,7 @@
       <button id="modalClose" class="modal-close" aria-label="Fermer">✕</button>
       <h3 id="modalTitle"></h3>
       <p id="modalDesc"></p>
+      <p class="modal-meta" id="modalMeta"></p>
     </div>
   </div>
 
