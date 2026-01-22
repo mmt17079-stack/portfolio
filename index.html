@@ -1,11 +1,207 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Mon site GitHub</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MMT — Portfolio</title>
+  <meta name="description" content="Portfolio de MMT — projets, compétences et contact pour recruteurs." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Bienvenue sur mon site 🎉</h1>
-  <p>Mon site est hébergé sur GitHub Pages.</p>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#">MMT<span class="brand-dot">.</span></a>
+      <nav class="nav" id="nav">
+        <a href="#projects">Projets</a>
+        <a href="#about">À propos</a>
+        <a href="#skills">Compétences</a>
+        <a href="#contact" class="btn-outline">Contact</a>
+      </nav>
+      <button id="navToggle" class="nav-toggle" aria-label="Ouvrir le menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <h1>Bonjour, je suis <strong>MMT</strong></h1>
+          <p>Développeur web / Portfolio professionnel — je crée des sites performants, accessibles et esthétiques pour des produits et entreprises.</p>
+          <p class="hero-cta">
+            <a class="btn-primary" href="#contact">Me contacter</a>
+            <a class="btn-ghost" href="#projects">Voir mes projets</a>
+          </p>
+          <ul class="quick-info">
+            <li><strong>Localisation</strong> : Mali</li>
+            <li><strong>Disponibilité</strong> : Ouvert aux opportunités</li>
+          </ul>
+        </div>
+
+        <div class="hero-card" role="region" aria-label="Aperçu du portfolio">
+          <img alt="Aperçu du portfolio" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section">
+      <div class="container">
+        <h2 class="section-title">Projets récents</h2>
+        <p class="section-sub">Sélection de travaux techniques et visuels — cliqez pour plus de détails.</p>
+
+        <div class="projects-grid" id="projectsGrid">
+          <!-- Exemple de carte projet (duplique / modifie pour ajouter les tiens) -->
+          <article class="card project" data-tech="web" data-title="Interface CV dynamique" data-desc="Site responsive affichant CV animé, interactions JS et SEO.">
+            <img src="https://images.unsplash.com/photo-1526378720949-8a1f9b8b9c28?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Interface CV dynamique">
+            <div class="card-body">
+              <h3>Interface CV dynamique</h3>
+              <p class="card-tags">HTML • CSS • JavaScript</p>
+              <div class="card-actions">
+                <button class="btn-sm view-btn">Voir</button>
+                <a class="btn-sm ghost" href="#" target="_blank" rel="noopener">Code</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project" data-tech="app" data-title="Dashboard Analytique" data-desc="Dashboard performant avec graphiques et composants réutilisables.">
+            <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Dashboard Analytique">
+            <div class="card-body">
+              <h3>Dashboard Analytique</h3>
+              <p class="card-tags">React • API • Charts</p>
+              <div class="card-actions">
+                <button class="btn-sm view-btn">Voir</button>
+                <a class="btn-sm ghost" href="#" target="_blank" rel="noopener">Code</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PLACEHOLDER: ajoute d'autres projets ici -->
+        </div>
+
+        <div class="projects-controls">
+          <label>Filtre :
+            <select id="filterTech">
+              <option value="all">Tous</option>
+              <option value="web">Web</option>
+              <option value="app">App</option>
+              <option value="design">Design</option>
+            </select>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section alt">
+      <div class="container about-grid">
+        <div>
+          <h2>À propos</h2>
+          <p>Je suis développeur front-end avec une sensibilité UI/UX. J'aime transformer des idées en expériences numériques claires et rapides. J'apporte une attention particulière à l'accessibilité, à la performance et au code maintenable.</p>
+          <ul>
+            <li>Formation : Informatique / Auto-didacte</li>
+            <li>Langues : Français & Anglais</li>
+          </ul>
+        </div>
+        <div class="about-stats">
+          <div class="stat">
+            <strong>10+</strong>
+            <span>Projets</span>
+          </div>
+          <div class="stat">
+            <strong>5+</strong>
+            <span>Clients / Recruteurs satisfaits</span>
+          </div>
+          <div class="stat">
+            <strong>3ms</strong>
+            <span>Temps de chargement optimisé</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section">
+      <div class="container">
+        <h2 class="section-title">Compétences</h2>
+        <div class="skills-grid">
+          <div class="skill">
+            <h4>HTML & CSS</h4>
+            <div class="meter"><span style="width:95%"></span></div>
+          </div>
+          <div class="skill">
+            <h4>JavaScript</h4>
+            <div class="meter"><span style="width:85%"></span></div>
+          </div>
+          <div class="skill">
+            <h4>React / Frontend</h4>
+            <div class="meter"><span style="width:80%"></span></div>
+          </div>
+          <div class="skill">
+            <h4>UI & Prototypage</h4>
+            <div class="meter"><span style="width:75%"></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section alt">
+      <div class="container contact-grid">
+        <div>
+          <h2>Contact</h2>
+          <p>Envie d’échanger ? Laisse un message ou envoie directement un e-mail.</p>
+          <ul class="contact-list">
+            <li><strong>Email</strong> : <a href="mailto:ton-email@example.com">ton-email@example.com</a></li>
+            <li><strong>Téléphone</strong> : +223 00 00 00 00</li>
+            <li><strong>LinkedIn</strong> : <a href="#" target="_blank">Ton profil</a></li>
+          </ul>
+        </div>
+        <form class="contact-form" onsubmit="handleContact(event)" aria-label="Formulaire de contact">
+          <label>
+            <span>Nom</span>
+            <input type="text" name="name" required />
+          </label>
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" required />
+          </label>
+          <label>
+            <span>Message</span>
+            <textarea name="message" rows="5" required></textarea>
+          </label>
+          <div class="form-actions">
+            <button type="submit" class="btn-primary">Envoyer</button>
+            <button type="reset" class="btn-ghost">Réinitialiser</button>
+          </div>
+          <p id="contactStatus" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year"></span> MMT — Portfolio. <small>Site optimisé pour les recruteurs.</small></p>
+      <p class="footer-links">
+        <a href="#projects">Projets</a>
+        <a href="#contact">Contact</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Modal / lightbox simple -->
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal-inner" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button id="modalClose" class="modal-close" aria-label="Fermer">✕</button>
+      <h3 id="modalTitle"></h3>
+      <p id="modalDesc"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
