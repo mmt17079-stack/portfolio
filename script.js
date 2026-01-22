@@ -1,10 +1,8 @@
-
-// Basic interactions: nav toggle, modal, filtering, contact handler
+// Interactions : nav mobile, modal, filtrage, contact (démo)
 document.addEventListener('DOMContentLoaded', () => {
-  // year
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Nav toggle (mobile)
+  // Mobile nav
   const navToggle = document.getElementById('navToggle');
   const nav = document.getElementById('nav');
   navToggle.addEventListener('click', () => {
@@ -18,25 +16,30 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Modal logic for project cards
+  // Modal for projects
   const modal = document.getElementById('modal');
   const modalTitle = document.getElementById('modalTitle');
   const modalDesc = document.getElementById('modalDesc');
+  const modalMeta = document.getElementById('modalMeta');
   const modalClose = document.getElementById('modalClose');
 
   document.querySelectorAll('.project .view-btn').forEach(btn=>{
     btn.addEventListener('click', (e) => {
       const card = e.target.closest('.project');
-      modalTitle.textContent = card.dataset.title || 'Détails du projet';
-      modalDesc.textContent = card.dataset.desc || 'Description non fournie.';
+      const title = card.dataset.title || 'Détails';
+      const desc = card.dataset.desc || 'Aucune description fournie.';
+      const tech = card.querySelector('.card-tags') ? card.querySelector('.card-tags').textContent : '';
+      modalTitle.textContent = title;
+      modalDesc.textContent = desc;
+      modalMeta.textContent = tech;
       modal.setAttribute('aria-hidden','false');
+      modal.focus();
     });
   });
 
   modalClose.addEventListener('click', ()=> modal.setAttribute('aria-hidden','true'));
-  modal.addEventListener('click', (e) => {
-    if(e.target === modal) modal.setAttribute('aria-hidden','true');
-  });
+  modal.addEventListener('click', (e) => { if(e.target === modal) modal.setAttribute('aria-hidden','true'); });
+  document.addEventListener('keydown', (e) => { if(e.key === 'Escape') modal.setAttribute('aria-hidden','true'); });
 
   // Filtering projects
   const filter = document.getElementById('filterTech');
@@ -52,15 +55,14 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// Faux handler contact (remplacer par endpoint réel / email)
+// Demo contact handler (remplacer par Formspree / Netlify / endpoint)
 function handleContact(e){
   e.preventDefault();
   const form = e.target;
   const status = document.getElementById('contactStatus');
   status.textContent = 'Envoi en cours...';
-  // Pour production : envoyer les données vers ton email via Formspree / Netlify Forms / backend
   setTimeout(()=>{
-    status.textContent = 'Merci — message envoyé ! (Ceci est une démo).';
+    status.textContent = 'Merci — message enregistré (démo).';
     form.reset();
   }, 900);
 }
