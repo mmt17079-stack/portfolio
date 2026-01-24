@@ -26,14 +26,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
   }
 
-  // Parallax Effect on Hero Image
+  // Parallax Effect on Hero Image (Desktop only)
   const heroImage = document.querySelector('.hero-image');
   let parallaxTimeout;
+  const isMobile = () => window.innerWidth < 900;
   const updateParallax = () => {
-    if (heroImage) {
+    if (heroImage && !isMobile()) {
       const scrollY = window.scrollY;
-      const parallaxOffset = scrollY * 0.5;
-      heroImage.style.transform = `translateY(${parallaxOffset}px)`;
+      const parallaxOffset = scrollY * 0.3;
+      heroImage.style.transform = `translateY(${Math.min(parallaxOffset, 80)}px)`;
+    } else if (heroImage && isMobile()) {
+      heroImage.style.transform = 'translateY(0)';
     }
   };
   if (heroImage) {
