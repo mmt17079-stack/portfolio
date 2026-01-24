@@ -104,3 +104,41 @@ Update breakpoints in `@media` queries—keep `1100px`, `900px`, `720px` thresho
 - **Update year in footer**: Auto-updated by `script.js`—no manual edit needed
 - **Scroll indicator**: Automatically updates; no config needed
 - **Sticky CTA timing**: Adjust hero section height or `.offsetHeight` comparison in scroll listener to change trigger point
+
+## Mobile-First Optimization Patterns
+
+### Touch Targets & Accessibility
+- All interactive elements (`buttons`, `links`, form inputs) have **minimum 44px height** on <720px
+- Button padding: `16px 20px` on mobile vs `14px 28px` on desktop
+- Use `min-height:48px` on `.btn-primary`, `.btn-ghost`, `.btn-sm` for comfortable tapping
+
+### Typography Scaling
+- Hero h1: scales from 2.2rem (desktop) → 1.8rem (mobile)
+- Section titles: 1.35rem → 1.1rem on mobile
+- Paragraph text: enforce `max-width:100%` on mobile for readability
+- Font-size floor: 0.75rem minimum (skill descriptions)
+
+### Spacing & Layout Adjustments (<720px)
+- Section padding: maintain consistent 46px vertical on all breakpoints
+- Gap reductions: projects grid/skills 12px → 10px on mobile
+- Hero CTA gap: 14px → 10px to reduce whitespace
+- Footer flex-direction: row → column for mobile stacking
+
+### Performance Optimizations
+- Parallax disabled completely on <900px (checked via `isMobile()` in JS)
+- `will-change:transform` only on desktop (avoid mobile paint cost)
+- Passive scroll listeners throughout (`{ passive: true }`)
+- Debounced animations (100ms timeout on scroll progress, 16ms on parallax)
+- GPU acceleration: `transform-origin:center top` on hero image
+
+### Form UX on Mobile
+- Input/textarea min-height: 44px on mobile
+- Font-size: 0.95rem+ (prevents auto-zoom on iOS focus)
+- Backdrop-filter reduced: blur(6px) → blur(4px) for performance
+- Focus ring maintained: 3px halo (important for accessibility)
+
+### Header & Nav Adjustments
+- Nav toggle padding: 8px → 12px for better tap target
+- Brand font-size: 1.05rem → 0.95rem on mobile
+- Header gap: 12px on mobile (preserved from responsive design)
+- Header stays sticky at top (z-index:60) on all sizes
