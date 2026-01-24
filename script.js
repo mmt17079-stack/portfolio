@@ -4,6 +4,47 @@ document.addEventListener('DOMContentLoaded', () => {
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+  // Scroll Progress Indicator
+  const scrollProgress = document.getElementById('scrollProgress');
+  let progressTimeout;
+  const updateScrollProgress = () => {
+    if (scrollProgress) {
+      const docElement = document.documentElement;
+      const winHeight = docElement.clientHeight;
+      const docHeight = docElement.scrollHeight - winHeight;
+      const scrolled = (window.scrollY / docHeight) * 100;
+      scrollProgress.style.width = scrolled + '%';
+    }
+  };
+  if (scrollProgress) {
+    window.addEventListener('scroll', () => {
+      clearTimeout(progressTimeout);
+      updateScrollProgress();
+      progressTimeout = setTimeout(() => {
+        updateScrollProgress();
+      }, 100);
+    }, { passive: true });
+  }
+
+  // Parallax Effect on Hero Image
+  const heroImage = document.querySelector('.hero-image');
+  let parallaxTimeout;
+  const updateParallax = () => {
+    if (heroImage) {
+      const scrollY = window.scrollY;
+      const parallaxOffset = scrollY * 0.5;
+      heroImage.style.transform = `translateY(${parallaxOffset}px)`;
+    }
+  };
+  if (heroImage) {
+    window.addEventListener('scroll', () => {
+      clearTimeout(parallaxTimeout);
+      parallaxTimeout = setTimeout(() => {
+        updateParallax();
+      }, 16);
+    }, { passive: true });
+  }
+
   // Sticky CTA Button - Affiche après le scroll du hero
   const ctaSticky = document.getElementById('ctaSticky');
   const heroSection = document.querySelector('.hero');
@@ -16,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         ctaSticky.classList.remove('show');
       }
-    });
+    }, { passive: true });
   }
 
   // Mobile nav

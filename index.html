@@ -9,6 +9,15 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <!-- Animated background orbs -->
+  <div class="animated-bg-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <!-- Scroll progress indicator -->
+  <div class="scroll-progress" id="scrollProgress"></div>
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="#">Mamadou M Traoré<span class="brand-dot">.</span></a>
@@ -57,6 +66,9 @@
       </div>
     </section>
 
+    <!-- Separator -->
+    <div class="section-separator"></div>
+
     <!-- Projects -->
     <section id="projects" class="section">
       <div class="container">
@@ -67,6 +79,13 @@
           <!-- 1) Application de gestion de notes (Django) -->
           <article class="card project" data-tech="django" data-title="Système de gestion de notes — ISTAG" data-desc="Application web complète (Django) pour gérer étudiants, notes, semestres, et exports PDF/CSV. Authentification, rôles enseignants/admin, API REST.">
             <img src="assets/istag_app.png" alt="Capture de l'application ISTAG" loading="lazy">
+            <div class="card-overlay">
+              <div class="overlay-content">
+                <h3>ISTAG Manager</h3>
+                <p class="overlay-tech">Django • PostgreSQL</p>
+                <button class="btn-sm view-btn">Voir détails</button>
+              </div>
+            </div>
             <div class="card-body">
               <h3>Système de gestion de notes — ISTAG</h3>
               <p class="card-tags">Python • Django • HTML • CSS • JavaScript • PostgreSQL</p>
@@ -188,32 +207,32 @@
         <h2 class="section-title">Compétences</h2>
         <div class="skills-grid">
           <div class="skill">
-            <h4>Web / Frontend</h4>
+            <h4><span class="skill-icon">💻</span> Web / Frontend</h4>
             <div class="meter"><span style="width:92%"></span></div>
             <small>HTML • CSS • JavaScript • React (bases)</small>
           </div>
           <div class="skill">
-            <h4>Backend / Django</h4>
+            <h4><span class="skill-icon">🐍</span> Backend / Django</h4>
             <div class="meter"><span style="width:88%"></span></div>
             <small>Python • Django • REST • PostgreSQL</small>
           </div>
           <div class="skill">
-            <h4>Langages natifs</h4>
+            <h4><span class="skill-icon">⚙️</span> Langages natifs</h4>
             <div class="meter"><span style="width:89%"></span></div>
             <small>C • C++ • C# • Python • Java</small>
           </div>
           <div class="skill">
-            <h4>Admin Systèmes & Réseaux</h4>
+            <h4><span class="skill-icon">🖥️</span> Admin Systèmes & Réseaux</h4>
             <div class="meter"><span style="width:90%"></span></div>
             <small>Linux servers, Nginx, BIND, DHCP, NAS, Active Directory</small>
           </div>
           <div class="skill">
-            <h4>Arts visuels 2D/3D</h4>
+            <h4><span class="skill-icon">🎨</span> Arts visuels 2D/3D</h4>
             <div class="meter"><span style="width:82%"></span></div>
             <small>After Effects • Photoshop • Maya • Substance Painter</small>
           </div>
           <div class="skill">
-            <h4>Optimisation Windows</h4>
+            <h4><span class="skill-icon">⚡</span> Optimisation Windows</h4>
             <div class="meter"><span style="width:86%"></span></div>
             <small>PowerShell, gestion utilisateurs, optimisation ressources</small>
           </div>
@@ -259,11 +278,21 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>&copy; <span id="year"></span> MMT — Portfolio. <small>Optimisé pour recruteurs et démonstrations techniques.</small></p>
-      <p class="footer-links">
-        <a href="#projects">Projets</a>
-        <a href="#contact">Contact</a>
-      </p>
+      <div>
+        <p>&copy; <span id="year"></span> MMT — Portfolio. <small>Optimisé pour recruteurs et démonstrations techniques.</small></p>
+        <p class="footer-links">
+          <a href="#projects">Projets</a>
+          <a href="#contact">Contact</a>
+        </p>
+      </div>
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/in/mamadou-modibo-traor%C3%A9-a54a303a7" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn">
+          <span class="social-icon">in</span>
+        </a>
+        <a href="https://github.com/mmt17079-stack" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub">
+          <span class="social-icon">⚡</span>
+        </a>
+      </div>
     </div>
   </footer>
 

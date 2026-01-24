@@ -35,11 +35,16 @@ This is a professional portfolio website for Mamadou Modibo Traoré—a polymath
 - **Glass morphism**: Use `rgba(255,255,255,0.03)` + `backdrop-filter: blur(6px)` for subtle glass effect
 
 ### JavaScript Patterns
-- **Event-driven**: Attach listeners to elements by ID or class in `DOMContentLoaded`
-- **Project modal**: Reads `data-*` attributes from card and populates modal; closed via ESC key or backdrop click
-- **Mobile nav**: `.nav` toggle shows/hides, navToggle button text changes from ☰ to ✕
-- **Filtering**: Select box with tech values filters `.project` cards by `data-tech` attribute
-- **Demo handlers**: Contact form has placeholder handler—replace with actual API (Formspree, Netlify, custom endpoint)
+- **Event-driven**: All listeners attached in `DOMContentLoaded` event (no inline onclick)—all interactivity waits for DOM ready
+- **Project modal**: Reads `data-title`, `data-desc`, and `.card-tags` from clicked card; populates modal fields; closes via ESC key, backdrop click, or close button
+- **Mobile nav**: `.nav` hidden by default; `.nav-toggle` button toggles `.open` class; text changes from ☰ to ✕; nav shown as `flex` on toggle
+- **Filtering**: `#filterTech` select listens to `change` event; matches cards by `data-tech` attribute; `all` option shows all cards
+- **Scroll behaviors**: 
+  - Footer `#year` updates via `new Date().getFullYear()`
+  - Scroll progress bar (`#scrollProgress`) width updated in real-time as percentage of page scrolled
+  - Sticky CTA button (`#ctaSticky`) appears after hero section scrolls past (toggle `.show` class at `heroBottom` threshold)
+- **Modal accessibility**: Uses `aria-hidden="true|false"` to control visibility (not `display` property)—modal focuses when opened
+- **Demo handlers**: Contact form has placeholder handler with 900ms delay—replace `handleContact()` with live API (Formspree, Netlify Forms, or custom endpoint); reset form and update `#contactStatus` on success
 
 ## Adding New Features
 
@@ -73,10 +78,29 @@ This is a professional portfolio website for Mamadou Modibo Traoré—a polymath
 | [script.js](script.js) | Interactivity | Modal, filtering, nav toggle, contact handler |
 | [assets/](assets/) | Images & media | Portfolio project screenshots, hero image |
 
+## Responsive Breakpoints & Layout Stacking
+- **Desktop (1100px+)**: Projects 3-column grid, hero 2-column layout (text left, image right)
+- **Tablet (900px–1100px)**: Projects 2-column, hero image narrows
+- **Mobile (<900px)**: Hero stacks to 1 column (text above image)
+- **Small mobile (<720px)**: All grids 1 column, nav hidden (toggle via hamburger), hero CTA flex-direction column (full-width buttons), contact/about stack 1 col
+
+Update breakpoints in `@media` queries—keep `1100px`, `900px`, `720px` thresholds consistent.
+
+## Animation & Interactive Effects
+- **Animated background orbs**: Three floating blurred gradient circles at fixed z-index -1; use `float-orb-*` keyframes for smooth translate animations (~20-25s duration)
+- **Scroll progress bar**: Fixed top bar, width scales 0–100% based on `window.scrollY / (document.height - windowHeight)`
+- **Button hover effects**: Primary buttons shift up `-3px` with shadow intensification; cards lift on hover
+- **Shimmer animation**: Primary CTA button has shimmer effect (gradient sliding left-to-right every 3s)
+- **Modal transitions**: `aria-hidden="true"` hides (no transition), `aria-hidden="false"` shows with flex display
+- **Sticky CTA**: Uses `.show` class to toggle opacity 0→1 and scale 0→1 smoothly
+
 ## Common Tasks
 
 - **Update project list**: Add card in `#projects` with data attributes; modal handles display
 - **Tweak colors**: Edit CSS variables in `:root` (`:root { --accent: #newcolor; }`)
 - **Add skill**: Insert `<div class="skill">` in `.skills-grid`—width bar auto-inherits `.meter span` styling
 - **Change nav items**: Edit anchor hrefs in `.nav` to match section IDs
-- **Test responsive**: Check 1000px and 720px breakpoints; stack layouts change at those thresholds
+- **Test responsive**: Check 1100px, 900px, and 720px breakpoints; use DevTools device emulation
+- **Update year in footer**: Auto-updated by `script.js`—no manual edit needed
+- **Scroll indicator**: Automatically updates; no config needed
+- **Sticky CTA timing**: Adjust hero section height or `.offsetHeight` comparison in scroll listener to change trigger point
