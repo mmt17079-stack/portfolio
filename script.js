@@ -117,6 +117,25 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  // Skills bar animation on scroll
+  const skillMeters = document.querySelectorAll('.meter span');
+  const animateSkills = () => {
+    skillMeters.forEach(bar => {
+      const rect = bar.getBoundingClientRect();
+      const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+      if (isVisible && !bar.dataset.animated) {
+        const width = bar.parentElement.querySelector('span').style.width || '0%';
+        bar.style.animation = 'none';
+        setTimeout(() => {
+          bar.style.animation = `fillBar 1.2s ease-out forwards`;
+          bar.dataset.animated = 'true';
+        }, 10);
+      }
+    });
+  };
+  window.addEventListener('scroll', animateSkills, { passive: true });
+  animateSkills();
 });
 
 // Demo contact handler (remplacer par Formspree / Netlify / endpoint)
