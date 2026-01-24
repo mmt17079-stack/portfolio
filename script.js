@@ -4,6 +4,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+  // Sticky CTA Button - Affiche après le scroll du hero
+  const ctaSticky = document.getElementById('ctaSticky');
+  const heroSection = document.querySelector('.hero');
+  if (ctaSticky && heroSection) {
+    window.addEventListener('scroll', () => {
+      const heroBottom = heroSection.offsetHeight;
+      const scrolled = window.scrollY;
+      if (scrolled > heroBottom) {
+        ctaSticky.classList.add('show');
+      } else {
+        ctaSticky.classList.remove('show');
+      }
+    });
+  }
+
   // Mobile nav
   const navToggle = document.getElementById('navToggle');
   const nav = document.getElementById('nav');
