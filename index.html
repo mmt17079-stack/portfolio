@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>MMT — Portfolio</title>
-  <meta name="description" content="Portfolio professionnel de MMT — développeur, admin systèmes & créateur 2D/3D." />
+  <meta name="description" content="Portfolio professionnel de Mamadou M. Traoré — développeur, admin systèmes & créateur 2D/3D." />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -41,8 +41,8 @@
         </div>
 
         <div class="hero-card" role="region" aria-label="Aperçu du portfolio">
-          <!-- IMAGE À REMPLACER: hero.jpg -->
-          <div class="img-placeholder"><img  href="assets/hero.jpg"><img/>[À REMPLACER — IMAGE HERO : hero.jpg → placer dans assets/hero.jpg]</div>
+          <!-- IMAGE HERO: place hero.jpg dans assets/hero.jpg -->
+          <img class="hero-image" src="assets/hero.jpg" alt="Aperçu du portfolio de Mamadou" loading="lazy">
         </div>
       </div>
     </section>
@@ -56,84 +56,78 @@
         <div class="projects-grid" id="projectsGrid">
           <!-- 1) Application de gestion de notes (Django) -->
           <article class="card project" data-tech="django" data-title="Système de gestion de notes — ISTAG" data-desc="Application web complète (Django) pour gérer étudiants, notes, semestres, et exports PDF/CSV. Authentification, rôles enseignants/admin, API REST.">
-            <!-- IMAGE À REMPLACER: istag_app.png -->
-            <div class="img-placeholder">[À REMPLACER — ISTAG_APP : assets/istag_app.png]</div>
+            <img src="assets/istag_app.png" alt="Capture de l'application ISTAG" loading="lazy">
             <div class="card-body">
               <h3>Système de gestion de notes — ISTAG</h3>
               <p class="card-tags">Python • Django • HTML • CSS • JavaScript • PostgreSQL</p>
               <div class="card-actions">
                 <button class="btn-sm view-btn">Voir</button>
-                <a class="btn-sm ghost" href="#" target="_blank" rel="noopener">Repo</a>
+                <a class="btn-sm ghost" href="#" target="_blank" rel="noopener noreferrer">Repo</a>
               </div>
             </div>
           </article>
 
           <!-- 2) Logiciels console en C -->
-          <article class="card project" data-tech="c" data-title="Outils console en C" data-desc="Suite d'utilitaires console (C) : parsers, outils de gestion de fichiers, algorithmes optimisés pour ressources limitées.">
-            <!-- IMAGE À REMPLACER: c_console.png -->
-            <div class="img-placeholder">[À REMPLACER — C_CONSOLE : assets/c_console.png]</div>
+          <article class="card project" data-tech="c" data-title="Outils console en C" data-desc="Suite d'utilitaires console (C) : parsers, gestion de fichiers, et utilitaires optimisés pour machines limitées.">
+            <img src="assets/c_console.png" alt="Exemple d'outil console en C" loading="lazy">
             <div class="card-body">
               <h3>Logiciels console (C)</h3>
               <p class="card-tags">C • Makefile • Optimisation mémoire</p>
               <div class="card-actions">
                 <button class="btn-sm view-btn">Voir</button>
-                <a class="btn-sm ghost" href="#" target="_blank" rel="noopener">Repo</a>
+                <a class="btn-sm ghost" href="#" target="_blank" rel="noopener noreferrer">Repo</a>
               </div>
             </div>
           </article>
 
           <!-- 3) Arts visuels 2D -->
           <article class="card project" data-tech="art2d" data-title="Créations 2D & Motion" data-desc="Travaux en After Effects & Photoshop : animations, motion design, posters, et assets UI/marketing.">
-            <!-- IMAGE À REMPLACER: art_2d.png -->
-            <div class="img-placeholder">[À REMPLACER — ART_2D : assets/art_2d.png]</div>
+            <img src="assets/art_2d.png" alt="Exemple artwork 2D" loading="lazy">
             <div class="card-body">
               <h3>Arts visuels — 2D / Motion</h3>
               <p class="card-tags">After Effects • Photoshop • Motion design</p>
               <div class="card-actions">
                 <button class="btn-sm view-btn">Voir</button>
-                <a class="btn-sm ghost" href="#" target="_blank" rel="noopener">Portfolio</a>
+                <a class="btn-sm ghost" href="#" target="_blank" rel="noopener noreferrer">Portfolio</a>
               </div>
             </div>
           </article>
 
           <!-- 4) Projets 3D -->
-          <article class="card project" data-tech="art3d" data-title="Projets 3D (Maya / Substance)" data-desc="Modélisation et texturing (Maya, Substance Painter) — assets 3D, rendu, optimisation pour pipeline." >
-            <!-- IMAGE À REMPLACER: art_3d.png -->
-            <div class="img-placeholder">[À REMPLACER — ART_3D : assets/art_3d.png]</div>
+          <article class="card project" data-tech="art3d" data-title="Projets 3D (Maya / Substance)" data-desc="Modélisation et texturing (Maya, Substance Painter) — assets 3D, rendu, optimisation pour pipeline.">
+            <img src="assets/art_3d.png" alt="Exemple rendu 3D" loading="lazy">
             <div class="card-body">
               <h3>3D — Modélisation & texturing</h3>
               <p class="card-tags">Autodesk Maya • Substance Painter • Rendu</p>
               <div class="card-actions">
                 <button class="btn-sm view-btn">Voir</button>
-                <a class="btn-sm ghost" href="#" target="_blank" rel="noopener">Galerie</a>
+                <a class="btn-sm ghost" href="#" target="_blank" rel="noopener noreferrer">Galerie</a>
               </div>
             </div>
           </article>
 
           <!-- 5) Administration systèmes & serveurs -->
-          <article class="card project" data-tech="sysadmin" data-title="Infrastructure & serveurs (Linux)" data-desc="Mise en place de serveurs Web, DNS, DHCP, PAT, NAS; scripts d'automatisation; sauvegarde et surveillance." >
-            <!-- IMAGE À REMPLACER: sysadmin.png -->
-            <div class="img-placeholder">[À REMPLACER — SYSADMIN : assets/sysadmin.png]</div>
+          <article class="card project" data-tech="sysadmin" data-title="Infrastructure & serveurs (Linux)" data-desc="Mise en place de serveurs Web, DNS, DHCP, PAT, NAS; scripts d'automatisation; sauvegarde et surveillance.">
+            <img src="assets/sysadmin.png" alt="Schéma d'infrastructure / serveurs" loading="lazy">
             <div class="card-body">
               <h3>Admin Systèmes / Réseaux</h3>
               <p class="card-tags">Linux • Nginx • BIND • DHCP • NAS</p>
               <div class="card-actions">
                 <button class="btn-sm view-btn">Voir</button>
-                <a class="btn-sm ghost" href="#" target="_blank" rel="noopener">Docs</a>
+                <a class="btn-sm ghost" href="#" target="_blank" rel="noopener noreferrer">Docs</a>
               </div>
             </div>
           </article>
 
           <!-- 6) Optimisation Windows & gestion ressources -->
-          <article class="card project" data-tech="windows" data-title="Optimisation & maintenance Windows" data-desc="Optimisation des ressources, gestion utilisateurs & droits, scripts d'automatisation pour machines peu performantes." >
-            <!-- IMAGE À REMPLACER: windows_opt.png -->
-            <div class="img-placeholder">[À REMPLACER — WINDOWS_OPT : assets/windows_opt.png]</div>
+          <article class="card project" data-tech="windows" data-title="Optimisation & maintenance Windows" data-desc="Optimisation des ressources, gestion utilisateurs & droits, scripts d'automatisation pour machines peu performantes.">
+            <img src="assets/windows_opt.png" alt="Optimisation Windows" loading="lazy">
             <div class="card-body">
               <h3>Optimisation Windows</h3>
-              <p class="card-tags">Windows • PowerShell • Optimisation • Administrations clients</p>
+              <p class="card-tags">Windows • PowerShell • Optimisation • Administration client</p>
               <div class="card-actions">
                 <button class="btn-sm view-btn">Voir</button>
-                <a class="btn-sm ghost" href="#" target="_blank" rel="noopener">Guides</a>
+                <a class="btn-sm ghost" href="#" target="_blank" rel="noopener noreferrer">Guides</a>
               </div>
             </div>
           </article>
@@ -163,7 +157,7 @@
           <p>Ingénieur généraliste orienté informatique : développement logiciel & web, administration systèmes/réseaux, et création numérique. J'équilibre rigueur technique et sens esthétique pour livrer des projets fiables, maintenables et optimisés.</p>
           <ul>
             <li><strong>Projets clés</strong> : Système de gestion ISTAG (Django), suite d'outils C, pipelines 2D/3D.</li>
-            <li><strong>Formations</strong> : Ingénérie Informatique & auto-formation continue.</li>
+            <li><strong>Formations</strong> : Ingénierie Informatique & auto-formation continue.</li>
             <li><strong>Langues</strong> : Français & Anglais.</li>
           </ul>
         </div>
@@ -232,8 +226,8 @@
           <ul class="contact-list">
             <li><strong>Email</strong> : <a href="mailto:Mmt17093@gmail.com">Mmt17093@gmail.com</a></li>
             <li><strong>Téléphone</strong> : +223 60 02 30 03</li>
-            <li><strong>LinkedIn</strong> : <a href="www.linkedin.com/in/mamadou-modibo-traoré-a54a303a7" target="_blank">mamadou-modibo-traoré</a></li>
-            <li><strong>GitHub</strong> : <a href="https://github.com/mmt17079-stack" target="_blank">mmt17079-stack</a></li>
+            <li><strong>LinkedIn</strong> : <a href="https://www.linkedin.com/in/mamadou-modibo-traor%C3%A9-a54a303a7" target="_blank" rel="noopener noreferrer">mamadou-modibo-traoré</a></li>
+            <li><strong>GitHub</strong> : <a href="https://github.com/mmt17079-stack" target="_blank" rel="noopener noreferrer">mmt17079-stack</a></li>
           </ul>
         </div>
         <form class="contact-form" onsubmit="handleContact(event)" aria-label="Formulaire de contact">
