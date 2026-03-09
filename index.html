@@ -17,7 +17,8 @@
   </div>
 
   <!-- Scroll progress indicator -->
-  <div class="scroll-progress" id="scrollProgress"></div>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="#">Mamadou M Traoré<span class="brand-dot">.</span></a>
@@ -27,7 +28,7 @@
         <a href="#skills">Compétences</a>
         <a href="#contact" class="btn-outline">Contact</a>
       </nav>
-      <button id="navToggle" class="nav-toggle" aria-label="Ouvrir le menu">☰</button>
+      <button type="button" id="navToggle" class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
     </div>
   </header>
 
@@ -36,7 +37,7 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-text">
-          <div class="availability-badge">
+          <div class="availability-badge" aria-hidden="true">
             <span class="dot"></span> Disponible immédiatement
           </div>
           <h1>Bonjour, je suis <strong>Mamadou Modibo Traoré</strong></h1>
@@ -48,7 +49,7 @@
 
           <div class="hero-contact-info">
             <a href="mailto:Mmt17093@gmail.com" class="email-link">
-              <span class="email-icon">✉</span>
+              <span class="email-icon" aria-hidden="true">✉</span>
               <span>Mmt17093@gmail.com</span>
             </a>
           </div>
@@ -60,14 +61,17 @@
         </div>
 
         <div class="hero-card" role="region" aria-label="Aperçu du portfolio">
-          <!-- image (1280x853) -->
-          <img class="hero-image" src="assets/hero.jpg" alt="Portrait professionnel de Mamadou" loading="lazy">
+          <!-- responsive hero image: provide WebP variants (generate with ImageMagick or similar) -->
+          <picture>
+            <source type="image/webp" srcset="assets/hero-480.webp 480w, assets/hero-800.webp 800w, assets/hero-1280.webp 1280w" sizes="(max-width:900px) 100vw, 540px">
+            <!-- add width/height to reduce CLS (estimates; adapte si tu as les tailles exactes) -->
+            <img class="hero-image" src="assets/hero.jpg" srcset="assets/hero-480.jpg 480w, assets/hero-800.jpg 800w, assets/hero-1280.jpg 1280w" sizes="(max-width:900px) 100vw, 540px" alt="Portrait professionnel de Mamadou" loading="lazy" width="1280" height="720">
+          </picture>
         </div>
       </div>
     </section>
 
-    <!-- Separator -->
-    <div class="section-separator"></div>
+    <div class="section-separator" aria-hidden="true"></div>
 
     <!-- Projects -->
     <section id="projects" class="section">
@@ -78,79 +82,92 @@
         <div class="projects-grid" id="projectsGrid">
           <!-- 1) Application de gestion de notes (Django) -->
           <article class="card project" data-tech="django" data-title="Système de gestion de notes — ISTAG" data-desc="Application web complète (Django) pour gérer étudiants, notes, semestres, et exports PDF/CSV. Authentification, rôles enseignants/admin, API REST.">
-            <img src="assets/istag_app.png" alt="Capture de l'application ISTAG" loading="lazy">
+            <img src="assets/istag_app.png" alt="Capture de l'application ISTAG" loading="lazy" width="1280" height="720">
             <div class="card-overlay">
               <div class="overlay-content">
                 <h3>ISTAG Manager</h3>
                 <p class="overlay-tech">Django • PostgreSQL</p>
-                <button class="btn-sm view-btn">Voir détails</button>
+                <button type="button" class="btn-sm view-btn">Voir détails</button>
               </div>
             </div>
             <div class="card-body">
               <h3>Système de gestion de notes — ISTAG</h3>
               <p class="card-tags">Python • Django • HTML • CSS • JavaScript • PostgreSQL</p>
               <div class="card-actions">
-                <button class="btn-sm view-btn">Voir</button>
+                <button type="button" class="btn-sm view-btn">Voir</button>
               </div>
             </div>
           </article>
 
           <!-- 2) Logiciels console en C -->
           <article class="card project" data-tech="c" data-title="Outils console en C" data-desc="Suite d'utilitaires console (C) : parsers, gestion de fichiers, et utilitaires optimisés pour machines limitées.">
-            <img src="assets/c_console.png" alt="Exemple d'outil console en C" loading="lazy">
+            <img src="assets/c_console.png" alt="Exemple d'outil console en C" loading="lazy" width="1280" height="720">
             <div class="card-body">
               <h3>Logiciels console (C)</h3>
               <p class="card-tags">C • Makefile • Optimisation mémoire</p>
               <div class="card-actions">
-                <button class="btn-sm view-btn">Voir</button>
+                <button type="button" class="btn-sm view-btn">Voir</button>
               </div>
             </div>
           </article>
 
           <!-- 3) Arts visuels 2D -->
           <article class="card project" data-tech="art2d" data-title="Créations 2D & Motion" data-desc="Travaux en After Effects & Photoshop : animations, motion design, posters, et assets UI/marketing.">
-            <img src="assets/art_2d.png" alt="Exemple artwork 2D" loading="lazy">
+            <img src="assets/art_2d.png" alt="Exemple artwork 2D" loading="lazy" width="1280" height="720">
             <div class="card-body">
               <h3>Arts visuels — 2D / Motion</h3>
               <p class="card-tags">After Effects • Photoshop • Motion design</p>
               <div class="card-actions">
-                <button class="btn-sm view-btn">Voir</button>
+                <button type="button" class="btn-sm view-btn">Voir</button>
               </div>
             </div>
           </article>
 
           <!-- 4) Projets 3D -->
           <article class="card project" data-tech="art3d" data-title="Projets 3D (Maya / Substance)" data-desc="Modélisation et texturing (Maya, Substance Painter) — assets 3D, rendu, optimisation pour pipeline.">
-            <img src="assets/art_3d.png" alt="Exemple rendu 3D" loading="lazy">
+            <img src="assets/art_3d.png" alt="Exemple rendu 3D" loading="lazy" width="1280" height="720">
             <div class="card-body">
               <h3>3D — Modélisation & texturing</h3>
               <p class="card-tags">Autodesk Maya • Substance Painter • Rendu</p>
               <div class="card-actions">
-                <button class="btn-sm view-btn">Voir</button>
+                <button type="button" class="btn-sm view-btn">Voir</button>
               </div>
             </div>
           </article>
 
           <!-- 5) Administration systèmes & serveurs -->
           <article class="card project" data-tech="sysadmin" data-title="Infrastructure & serveurs (Linux)" data-desc="Mise en place de serveurs Web, DNS, DHCP, PAT, NAS; scripts d'automatisation; sauvegarde et surveillance.">
-            <img src="assets/sysadmin.png" alt="Schéma d'infrastructure / serveurs" loading="lazy">
+            <img src="assets/sysadmin.png" alt="Schéma d'infrastructure / serveurs" loading="lazy" width="1280" height="720">
             <div class="card-body">
               <h3>Admin Systèmes / Réseaux</h3>
               <p class="card-tags">Linux • Nginx • BIND • DHCP • NAS</p>
               <div class="card-actions">
-                <button class="btn-sm view-btn">Voir</button>
+                <button type="button" class="btn-sm view-btn">Voir</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- MiniWiki — maintenant harmonisé (class project + data-tech) -->
+          <article class="card project" id="project-miniwiki" data-tech="django" data-title="MiniWiki — mini-encyclopédie" data-desc="MiniWiki est une mini-encyclopédie de fiches biographiques avec recherche intelligente, autocomplétion et déploiement sur serveur Linux.">
+            <img src="assets/Mikedia_shoot.png" alt="MiniWiki - capture d'écran" class="project-thumb" loading="lazy" width="1280" height="720" />
+            <div class="card-body">
+              <h3>MiniWiki</h3>
+              <p class="card-tags">Django • PostgreSQL • Nginx • Bootstrap</p>
+              <div class="card-actions">
+                <a class="btn btn-primary" href="https://charlette-detrital-alisia.ngrok-free.dev/" target="_blank" rel="noopener noreferrer">Accéder en ligne</a>
+                <button type="button" class="btn btn-outline view-btn" id="open-miniwiki">Aperçu</button>
               </div>
             </div>
           </article>
 
           <!-- 6) Optimisation Windows & gestion ressources -->
           <article class="card project" data-tech="windows" data-title="Optimisation & maintenance Windows" data-desc="Optimisation des ressources, gestion utilisateurs & droits, scripts d'automatisation pour machines peu performantes.">
-            <img src="assets/windows_opt.png" alt="Optimisation Windows" loading="lazy">
+            <img src="assets/windows_opt.png" alt="Optimisation Windows" loading="lazy" width="1280" height="720">
             <div class="card-body">
               <h3>Optimisation Windows</h3>
               <p class="card-tags">Windows • PowerShell • Optimisation • Administration client</p>
               <div class="card-actions">
-                <button class="btn-sm view-btn">Voir</button>
+                <button type="button" class="btn-sm view-btn">Voir</button>
               </div>
             </div>
           </article>
@@ -253,7 +270,7 @@
             <li><strong>GitHub</strong> : <a href="https://github.com/mmt17079-stack" target="_blank" rel="noopener noreferrer">mmt17079-stack</a></li>
           </ul>
         </div>
-        <form class="contact-form" onsubmit="handleContact(event)" aria-label="Formulaire de contact">
+        <form class="contact-form" aria-label="Formulaire de contact">
           <label>
             <span>Nom</span>
             <input type="text" name="name" required />
@@ -287,33 +304,33 @@
       </div>
       <div class="footer-socials">
         <a href="https://www.linkedin.com/in/mamadou-modibo-traor%C3%A9-a54a303a7" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn">
-          <span class="social-icon">in</span>
+          <span class="social-icon" aria-hidden="true">in</span>
         </a>
         <a href="https://github.com/mmt17079-stack" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub">
-          <span class="social-icon">⚡</span>
+          <span class="social-icon" aria-hidden="true">⚡</span>
         </a>
       </div>
     </div>
   </footer>
 
   <!-- Sticky CTA Button -->
-  <div class="cta-sticky" id="ctaSticky">
+  <div class="cta-sticky" id="ctaSticky" aria-hidden="true">
     <a href="#contact" class="cta-sticky-btn">
-      <span class="cta-sticky-btn-icon">💬</span>
+      <span class="cta-sticky-btn-icon" aria-hidden="true">💬</span>
       Me contacter
     </a>
   </div>
 
   <!-- Modal / lightbox simple -->
-  <div id="modal" class="modal" aria-hidden="true">
+  <div id="modal" class="modal" aria-hidden="true" tabindex="-1">
     <div class="modal-inner" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <button id="modalClose" class="modal-close" aria-label="Fermer">✕</button>
+      <button type="button" id="modalClose" class="modal-close" aria-label="Fermer">✕</button>
       <h3 id="modalTitle"></h3>
       <p id="modalDesc"></p>
       <p class="modal-meta" id="modalMeta"></p>
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
