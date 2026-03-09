@@ -60,16 +60,16 @@
         </div>
 
         <div class="hero-card" role="region" aria-label="Aperçu du portfolio">
-          <!-- Image responsive avec fallback -->
+          <!-- Image responsive (WebP sources removed: ajoute des .webp si tu veux optimiser) -->
           <picture>
-            <source type="image/webp" srcset="assets/hero-480.webp 480w, assets/hero-800.webp 800w, assets/hero-1280.webp 1280w" sizes="(max-width:900px) 100vw, 540px">
             <img class="hero-image"
                  src="assets/hero.jpg"
                  srcset="assets/hero-480.jpg 480w, assets/hero-800.jpg 800w, assets/hero-1280.jpg 1280w"
                  sizes="(max-width:900px) 100vw, 540px"
                  alt="Portrait professionnel de Mamadou"
                  loading="lazy"
-                 width="1280" height="720">
+                 width="1280" height="853"
+                 onerror="this.onerror=null;this.src='assets/istag_app.png';">
           </picture>
         </div>
       </div>
@@ -193,7 +193,6 @@
               <h3>MiniWiki — mini-encyclopédie</h3>
               <p class="card-tags">Django • PostgreSQL • Nginx • Bootstrap</p>
               <div class="card-actions">
-                 <a class="btn btn-primary" href="https://charlette-detrital-alisia.ngrok-free.dev/" target="_blank" rel="noopener noreferrer">Acceder en ligne</a>   
                 <button type="button" class="btn btn-outline view-btn">Aperçu</button>
               </div>
             </div>
@@ -270,35 +269,35 @@
       <div class="container">
         <h2 class="section-title">Compétences</h2>
         <div class="skills-grid">
-          <!-- Skills bars avec data-anim -->
+          <!-- Skills bars now use data-width attributes -->
           <div class="skill">
             <h4><span class="skill-icon">💻</span> Web / Frontend</h4>
-            <div class="meter"><span style="width:92%"></span></div>
+            <div class="meter"><span data-width="92%"></span></div>
             <small>HTML • CSS • JavaScript • React (bases)</small>
           </div>
           <div class="skill">
             <h4><span class="skill-icon">🐍</span> Backend / Django</h4>
-            <div class="meter"><span style="width:88%"></span></div>
+            <div class="meter"><span data-width="88%"></span></div>
             <small>Python • Django • REST • PostgreSQL</small>
           </div>
           <div class="skill">
             <h4><span class="skill-icon">⚙️</span> Langages natifs</h4>
-            <div class="meter"><span style="width:89%"></span></div>
+            <div class="meter"><span data-width="89%"></span></div>
             <small>C • C++ • C# • Python • Java</small>
           </div>
           <div class="skill">
             <h4><span class="skill-icon">🖥️</span> Admin Systèmes & Réseaux</h4>
-            <div class="meter"><span style="width:90%"></span></div>
+            <div class="meter"><span data-width="90%"></span></div>
             <small>Linux servers, Nginx, BIND, DHCP, NAS, Active Directory</small>
           </div>
           <div class="skill">
             <h4><span class="skill-icon">🎨</span> Arts visuels 2D/3D</h4>
-            <div class="meter"><span style="width:82%"></span></div>
+            <div class="meter"><span data-width="82%"></span></div>
             <small>After Effects • Photoshop • Maya • Substance Painter</small>
           </div>
           <div class="skill">
             <h4><span class="skill-icon">⚡</span> Optimisation Windows</h4>
-            <div class="meter"><span style="width:86%"></span></div>
+            <div class="meter"><span data-width="86%"></span></div>
             <small>PowerShell, gestion utilisateurs, optimisation ressources</small>
           </div>
         </div>
@@ -339,6 +338,16 @@
         </form>
       </div>
     </section>
+
+    <!-- MiniWiki — lien vers serveur local (déporté en bas) -->
+    <section id="miniwiki-local" class="section alt">
+      <div class="container">
+        <h2 class="section-title">MIKEPIA(serveur local)</h2>
+        <p class="section-sub">Le projet <strong>MiniWiki</strong> est déployé localement et accéssible via  tunnel ngroks. Utilisez le lien ci-dessous pour y accéder.</p>
+        <p><a class="btn-primary" href="https://charlette-detrital-alisia.ngrok-free.dev/" target="_blank" rel="noopener noreferrer">Accéder à MiniWiki (localhost)</a></p>
+      </div>
+    </section>
+
   </main>
 
   <footer class="site-footer">
