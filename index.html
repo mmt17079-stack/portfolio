@@ -40,7 +40,9 @@
             <span class="dot"></span> Disponible immédiatement
           </div>
           <h1>Bonjour, je suis <strong>Mamadou Modibo Traoré</strong></h1>
-          <p class="lead">Développeur web & desktop, administrateur systèmes/réseaux, et créatif 2D/3D — je conçois des solutions fiables et esthétiques, optimisées pour la production et l'usage professionnel.</p>
+          <p class="lead">
+            Développeur web & desktop, administrateur systèmes/réseaux, et créatif 2D/3D — je conçois des solutions fiables et esthétiques, optimisées pour la production et l’usage professionnel.
+          </p>
           <p class="hero-cta">
             <a class="btn-primary" href="#contact">Me contacter</a>
             <a class="btn-ghost" href="#projects">Voir mes projets</a>
@@ -58,7 +60,7 @@
         </div>
 
         <div class="hero-card" role="region" aria-label="Aperçu du portfolio">
-          <!-- Responsive hero image -->
+          <!-- Image responsive avec fallback -->
           <picture>
             <source type="image/webp" srcset="assets/hero-480.webp 480w, assets/hero-800.webp 800w, assets/hero-1280.webp 1280w" sizes="(max-width:900px) 100vw, 540px">
             <img class="hero-image"
@@ -234,13 +236,132 @@
       </div>
     </section>
 
-    <!-- À propos, Compétences, Contact, Footer (inchangés) -->
-    <!-- ... -->
+    <!-- À propos -->
+    <section id="about" class="section alt">
+      <div class="container about-grid">
+        <div>
+          <h2>À propos</h2>
+          <p>Ingénieur généraliste orienté informatique : développement logiciel & web, administration systèmes/réseaux, et création numérique. J'équilibre rigueur technique et sens esthétique pour livrer des projets fiables, maintenables et optimisés.</p>
+          <ul>
+            <li><strong>Projets clés</strong> : Système de gestion ISTAG (Django), suite d'outils C, pipelines 2D/3D.</li>
+            <li><strong>Formations</strong> : Ingénierie Informatique & auto-formation continue.</li>
+            <li><strong>Langues</strong> : Français & Anglais.</li>
+          </ul>
+        </div>
+        <div class="about-stats">
+          <div class="stat">
+            <strong>10+</strong>
+            <span>Projets réalisés</span>
+          </div>
+          <div class="stat">
+            <strong>Infra</strong>
+            <span>Web, DNS, DHCP, NAS</span>
+          </div>
+          <div class="stat">
+            <strong>2D/3D</strong>
+            <span>Motion & assets 3D</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Compétences -->
+    <section id="skills" class="section">
+      <div class="container">
+        <h2 class="section-title">Compétences</h2>
+        <div class="skills-grid">
+          <!-- Skills bars avec data-anim -->
+          <div class="skill">
+            <h4><span class="skill-icon">💻</span> Web / Frontend</h4>
+            <div class="meter"><span style="width:92%"></span></div>
+            <small>HTML • CSS • JavaScript • React (bases)</small>
+          </div>
+          <div class="skill">
+            <h4><span class="skill-icon">🐍</span> Backend / Django</h4>
+            <div class="meter"><span style="width:88%"></span></div>
+            <small>Python • Django • REST • PostgreSQL</small>
+          </div>
+          <div class="skill">
+            <h4><span class="skill-icon">⚙️</span> Langages natifs</h4>
+            <div class="meter"><span style="width:89%"></span></div>
+            <small>C • C++ • C# • Python • Java</small>
+          </div>
+          <div class="skill">
+            <h4><span class="skill-icon">🖥️</span> Admin Systèmes & Réseaux</h4>
+            <div class="meter"><span style="width:90%"></span></div>
+            <small>Linux servers, Nginx, BIND, DHCP, NAS, Active Directory</small>
+          </div>
+          <div class="skill">
+            <h4><span class="skill-icon">🎨</span> Arts visuels 2D/3D</h4>
+            <div class="meter"><span style="width:82%"></span></div>
+            <small>After Effects • Photoshop • Maya • Substance Painter</small>
+          </div>
+          <div class="skill">
+            <h4><span class="skill-icon">⚡</span> Optimisation Windows</h4>
+            <div class="meter"><span style="width:86%"></span></div>
+            <small>PowerShell, gestion utilisateurs, optimisation ressources</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section alt">
+      <div class="container contact-grid">
+        <div>
+          <h2>Contact</h2>
+          <p>Pour toute proposition, recrutement ou collaboration, contacte-moi. J'accepte les entretiens techniques et démonstrations de projets sur demande.</p>
+          <ul class="contact-list">
+            <li><strong>Email</strong> : <a href="mailto:Mmt17093@gmail.com">Mmt17093@gmail.com</a></li>
+            <li><strong>Téléphone</strong> : +223 60 02 30 03</li>
+            <li><strong>LinkedIn</strong> : <a href="https://www.linkedin.com/in/mamadou-modibo-traor%C3%A9-a54a303a7" target="_blank" rel="noopener noreferrer">mamadou-modibo-traoré</a></li>
+            <li><strong>GitHub</strong> : <a href="https://github.com/mmt17079-stack" target="_blank" rel="noopener noreferrer">mmt17079-stack</a></li>
+          </ul>
+        </div>
+        <form class="contact-form" onsubmit="handleContact(event)" aria-label="Formulaire de contact">
+          <label>
+            <span>Nom</span>
+            <input type="text" name="name" required />
+          </label>
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" required />
+          </label>
+          <label>
+            <span>Message</span>
+            <textarea name="message" rows="5" required></textarea>
+          </label>
+          <div class="form-actions">
+            <button type="submit" class="btn-primary">Envoyer</button>
+            <button type="reset" class="btn-ghost">Réinitialiser</button>
+          </div>
+          <p id="contactStatus" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
   </main>
+
   <footer class="site-footer">
-    <!-- footer content -->
+    <div class="container footer-inner">
+      <div>
+        <p>&copy; <span id="year"></span> MMT — Portfolio. <small>Optimisé pour recruteurs et démonstrations techniques.</small></p>
+        <p class="footer-links">
+          <a href="#projects">Projets</a>
+          <a href="#contact">Contact</a>
+        </p>
+      </div>
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/in/mamadou-modibo-traor%C3%A9-a54a303a7" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn">
+          <span class="social-icon" aria-hidden="true">in</span>
+        </a>
+        <a href="https://github.com/mmt17079-stack" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub">
+          <span class="social-icon" aria-hidden="true">⚡</span>
+        </a>
+      </div>
+    </div>
   </footer>
 
+  <!-- Sticky CTA Button -->
   <div class="cta-sticky" id="ctaSticky" aria-hidden="true">
     <a href="#contact" class="cta-sticky-btn">
       <span class="cta-sticky-btn-icon" aria-hidden="true">💬</span>
@@ -248,7 +369,7 @@
     </a>
   </div>
 
-  <!-- Modal -->
+  <!-- Modal / lightbox -->
   <div id="modal" class="modal" aria-hidden="true" tabindex="-1">
     <div class="modal-inner" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
       <button type="button" id="modalClose" class="modal-close" aria-label="Fermer">✕</button>
