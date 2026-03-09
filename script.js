@@ -1,12 +1,13 @@
-// script.js (version corrigée)
+// script.js — corrected and improved
+// Interactions : nav mobile, modal, filtrage, contact (démo)
 document.addEventListener('DOMContentLoaded', () => {
-  // Affiche l'année actuelle
+  // Year in footer
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // Scroll Progress Indicator
+  // Scroll Progress Indicator (guard division by zero)
   const scrollProgress = document.getElementById('scrollProgress');
-  const updateScrollProgress = () => {
+  function updateScrollProgress() {
     if (!scrollProgress) return;
     const docElement = document.documentElement;
     const winHeight = docElement.clientHeight;
@@ -17,51 +18,50 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     const scrolled = Math.min(100, Math.max(0, (window.scrollY / docHeight) * 100));
     scrollProgress.style.width = scrolled + '%';
-  };
+  }
   window.addEventListener('scroll', updateScrollProgress, { passive: true });
   updateScrollProgress();
 
-  // Parallax sur l'image Hero (desktop)
+  // Parallax Effect on Hero Image (desktop)
   const heroImage = document.querySelector('.hero-image');
   const isMobile = () => window.innerWidth < 900;
-  const updateParallax = () => {
+  function updateParallax() {
     if (heroImage && !isMobile()) {
       const offset = Math.min(window.scrollY * 0.3, 80);
       heroImage.style.transform = `translateY(${offset}px)`;
     } else if (heroImage) {
       heroImage.style.transform = 'translateY(0)';
     }
-  };
+  }
   window.addEventListener('scroll', updateParallax, { passive: true });
   updateParallax();
 
-  // Bouton CTA fixe (après le Hero)
+  // Sticky CTA Button
   const ctaSticky = document.getElementById('ctaSticky');
   const heroSection = document.querySelector('.hero');
   if (ctaSticky && heroSection) {
     window.addEventListener('scroll', () => {
       const heroBottom = heroSection.offsetHeight;
-      const visible = window.scrollY > heroBottom;
-      ctaSticky.classList.toggle('show', visible);
-      ctaSticky.setAttribute('aria-hidden', String(!visible));
+      const show = window.scrollY > heroBottom;
+      ctaSticky.classList.toggle('show', show);
+      ctaSticky.setAttribute('aria-hidden', String(!show));
     }, { passive: true });
   }
 
-  // Menu mobile
+  // Mobile nav
   const navToggle = document.getElementById('navToggle');
   const nav = document.getElementById('nav');
   if (navToggle && nav) {
     navToggle.setAttribute('aria-expanded', 'false');
     navToggle.addEventListener('click', () => {
-      const opened = !nav.classList.contains('open');
-      nav.classList.toggle('open');
-      nav.style.display = opened ? 'flex' : '';
-      navToggle.textContent = opened ? '✕' : '☰';
-      navToggle.setAttribute('aria-expanded', opened.toString());
+      const open = nav.classList.toggle('open');
+      nav.style.display = open ? 'flex' : '';
+      navToggle.textContent = open ? '✕' : '☰';
+      navToggle.setAttribute('aria-expanded', String(open));
     });
   }
 
-  // Modale projets
+  // Modal (improved: trap focus, prevent background scroll)
   const modal = document.getElementById('modal');
   const modalTitle = document.getElementById('modalTitle');
   const modalDesc = document.getElementById('modalDesc');
@@ -71,10 +71,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function openModal(title, desc, meta) {
     if (!modal) return;
-    modalTitle.textContent = title || 'Détails';
-    modalDesc.textContent = desc || '';
-    modalMeta.textContent = meta || '';
     lastFocused = document.activeElement;
+    if (modalTitle) modalTitle.textContent = title || '';
+    if (modalDesc) modalDesc.textContent = desc || '';
+    if (modalMeta) modalMeta.textContent = meta || '';
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
     modal.focus();
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!modal) return;
     modal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
-    if (lastFocused) lastFocused.focus();
+    if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
   }
   if (modalClose) modalClose.addEventListener('click', closeModal);
   if (modal) {
@@ -91,19 +91,19 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
   }
 
-  // Boutons "Voir" / "Aperçu" sur les projets
+  // View buttons (works for all .view-btn)
   document.querySelectorAll('.view-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
-      const card = e.target.closest('.card.project');
+      const card = e.target.closest('article[data-tech], .project, .card');
       if (!card) return;
       const title = card.dataset.title || card.querySelector('h3')?.textContent || 'Détails';
-      const desc = card.dataset.desc || '';
-      const tech = card.querySelector('.card-tags') ? card.querySelector('.card-tags').textContent : card.dataset.tech || '';
+      const desc = card.dataset.desc || 'Aucune description fournie.';
+      const tech = card.querySelector('.card-tags') ? card.querySelector('.card-tags').textContent : (card.dataset.tech || '');
       openModal(title, desc, tech);
     });
   });
 
-  // Filtre projets
+  // Filtering projects
   const filter = document.getElementById('filterTech');
   if (filter) {
     filter.addEventListener('change', () => {
@@ -114,25 +114,30 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Animation barres de compétences
-  const skillMeters = document.querySelectorAll('.meter span');
-  const animateSkills = () => {
-    skillMeters.forEach(bar => {
+  // Skills animation: read data-width attribute (works reliably)
+  const skillBars = document.querySelectorAll('.meter span');
+  function animateSkills() {
+    skillBars.forEach(bar => {
       const rect = bar.getBoundingClientRect();
-      const isVisible = (rect.top < window.innerHeight && rect.bottom > 0);
-      if (isVisible && !bar.dataset.animated) {
-        const target = bar.style.width.trim() || '0%';
+      const visible = rect.top < window.innerHeight && rect.bottom > 0;
+      if (visible && !bar.dataset.animated) {
+        const target = bar.dataset.width || bar.getAttribute('data-width') || '0%';
         bar.style.width = '0%';
-        // Transition CSS définie dans styles.css
-        bar.style.width = target;
-        bar.dataset.animated = 'true';
+        // small timeout to ensure transition
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            bar.style.width = target;
+            bar.dataset.animated = 'true';
+          });
+        });
       }
     });
-  };
+  }
   window.addEventListener('scroll', animateSkills, { passive: true });
+  window.addEventListener('resize', animateSkills);
   animateSkills();
 
-  // Formulaire de contact (simulation)
+  // Demo contact handler (replace with real endpoint in production)
   const contactForm = document.querySelector('.contact-form');
   if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
