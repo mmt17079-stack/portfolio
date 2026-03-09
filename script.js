@@ -1,6 +1,6 @@
 // script.js (version corrigée)
 document.addEventListener('DOMContentLoaded', () => {
-  // Affiche l'année courante
+  // Affiche l'année actuelle
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
@@ -21,13 +21,13 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', updateScrollProgress, { passive: true });
   updateScrollProgress();
 
-  // Effet parallax sur l'image hero (desktop uniquement)
+  // Parallax sur l'image Hero (desktop)
   const heroImage = document.querySelector('.hero-image');
   const isMobile = () => window.innerWidth < 900;
   const updateParallax = () => {
     if (heroImage && !isMobile()) {
-      const parallaxOffset = Math.min(window.scrollY * 0.3, 80);
-      heroImage.style.transform = `translateY(${parallaxOffset}px)`;
+      const offset = Math.min(window.scrollY * 0.3, 80);
+      heroImage.style.transform = `translateY(${offset}px)`;
     } else if (heroImage) {
       heroImage.style.transform = 'translateY(0)';
     }
@@ -35,15 +35,15 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', updateParallax, { passive: true });
   updateParallax();
 
-  // Bouton CTA fixe après défilement du hero
+  // Bouton CTA fixe (après le Hero)
   const ctaSticky = document.getElementById('ctaSticky');
   const heroSection = document.querySelector('.hero');
   if (ctaSticky && heroSection) {
     window.addEventListener('scroll', () => {
       const heroBottom = heroSection.offsetHeight;
-      const isVisible = (window.scrollY > heroBottom);
-      ctaSticky.classList.toggle('show', isVisible);
-      ctaSticky.setAttribute('aria-hidden', String(!isVisible));
+      const visible = window.scrollY > heroBottom;
+      ctaSticky.classList.toggle('show', visible);
+      ctaSticky.setAttribute('aria-hidden', String(!visible));
     }, { passive: true });
   }
 
@@ -53,27 +53,28 @@ document.addEventListener('DOMContentLoaded', () => {
   if (navToggle && nav) {
     navToggle.setAttribute('aria-expanded', 'false');
     navToggle.addEventListener('click', () => {
+      const opened = !nav.classList.contains('open');
       nav.classList.toggle('open');
-      const opened = nav.classList.contains('open');
       nav.style.display = opened ? 'flex' : '';
       navToggle.textContent = opened ? '✕' : '☰';
       navToggle.setAttribute('aria-expanded', opened.toString());
     });
   }
 
-  // Modale projets (ouvre/ferme)
+  // Modale projets
   const modal = document.getElementById('modal');
   const modalTitle = document.getElementById('modalTitle');
   const modalDesc = document.getElementById('modalDesc');
   const modalMeta = document.getElementById('modalMeta');
   const modalClose = document.getElementById('modalClose');
-  let lastFocusedEl = null;
+  let lastFocused = null;
+
   function openModal(title, desc, meta) {
     if (!modal) return;
-    if (modalTitle) modalTitle.textContent = title || 'Détails';
-    if (modalDesc) modalDesc.textContent = desc || '';
-    if (modalMeta) modalMeta.textContent = meta || '';
-    lastFocusedEl = document.activeElement;
+    modalTitle.textContent = title || 'Détails';
+    modalDesc.textContent = desc || '';
+    modalMeta.textContent = meta || '';
+    lastFocused = document.activeElement;
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
     modal.focus();
@@ -82,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!modal) return;
     modal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
-    if (lastFocusedEl && typeof lastFocusedEl.focus === 'function') lastFocusedEl.focus();
+    if (lastFocused) lastFocused.focus();
   }
   if (modalClose) modalClose.addEventListener('click', closeModal);
   if (modal) {
@@ -90,10 +91,10 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
   }
 
-  // Boutons "Voir" sur les projets
+  // Boutons "Voir" / "Aperçu" sur les projets
   document.querySelectorAll('.view-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
-      const card = e.target.closest('.card.project, article');
+      const card = e.target.closest('.card.project');
       if (!card) return;
       const title = card.dataset.title || card.querySelector('h3')?.textContent || 'Détails';
       const desc = card.dataset.desc || '';
@@ -102,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Filtre par technologie (projects)
+  // Filtre projets
   const filter = document.getElementById('filterTech');
   if (filter) {
     filter.addEventListener('change', () => {
@@ -113,27 +114,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Animation des barres de compétences
+  // Animation barres de compétences
   const skillMeters = document.querySelectorAll('.meter span');
   const animateSkills = () => {
     skillMeters.forEach(bar => {
       const rect = bar.getBoundingClientRect();
       const isVisible = (rect.top < window.innerHeight && rect.bottom > 0);
       if (isVisible && !bar.dataset.animated) {
-        const target = (bar.style.width && bar.style.width.trim()) || '0%';
+        const target = bar.style.width.trim() || '0%';
         bar.style.width = '0%';
-        bar.style.transition = 'width 1.2s ease-out';
-        requestAnimationFrame(() => {
-          bar.style.width = target;
-          bar.dataset.animated = 'true';
-        });
+        // Transition CSS définie dans styles.css
+        bar.style.width = target;
+        bar.dataset.animated = 'true';
       }
     });
   };
   window.addEventListener('scroll', animateSkills, { passive: true });
   animateSkills();
 
-  // Formulaire contact (simulation d'envoi)
+  // Formulaire de contact (simulation)
   const contactForm = document.querySelector('.contact-form');
   if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
