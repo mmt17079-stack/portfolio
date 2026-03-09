@@ -1,11 +1,10 @@
 // script.js (version corrigée)
-// Interactions : nav mobile, modal, filtrage, contact (démo)
 document.addEventListener('DOMContentLoaded', () => {
-  // Year in footer
+  // Affiche l'année courante
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // Scroll Progress Indicator (guard contre division par 0)
+  // Scroll Progress Indicator
   const scrollProgress = document.getElementById('scrollProgress');
   const updateScrollProgress = () => {
     if (!scrollProgress) return;
@@ -22,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', updateScrollProgress, { passive: true });
   updateScrollProgress();
 
-  // Parallax Effect on Hero Image (Desktop only)
+  // Effet parallax sur l'image hero (desktop uniquement)
   const heroImage = document.querySelector('.hero-image');
   const isMobile = () => window.innerWidth < 900;
   const updateParallax = () => {
@@ -36,39 +35,39 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', updateParallax, { passive: true });
   updateParallax();
 
-  // Sticky CTA Button - Affiche après le scroll du hero
+  // Bouton CTA fixe après défilement du hero
   const ctaSticky = document.getElementById('ctaSticky');
   const heroSection = document.querySelector('.hero');
   if (ctaSticky && heroSection) {
     window.addEventListener('scroll', () => {
       const heroBottom = heroSection.offsetHeight;
-      ctaSticky.classList.toggle('show', window.scrollY > heroBottom);
-      ctaSticky.setAttribute('aria-hidden', String(!(window.scrollY > heroBottom)));
+      const isVisible = (window.scrollY > heroBottom);
+      ctaSticky.classList.toggle('show', isVisible);
+      ctaSticky.setAttribute('aria-hidden', String(!isVisible));
     }, { passive: true });
   }
 
-  // Mobile nav
+  // Menu mobile
   const navToggle = document.getElementById('navToggle');
   const nav = document.getElementById('nav');
   if (navToggle && nav) {
     navToggle.setAttribute('aria-expanded', 'false');
     navToggle.addEventListener('click', () => {
-      const isOpen = !nav.classList.toggle('open');
-      // Use CSS/display for mobile; keep it simple
-      nav.style.display = nav.classList.contains('open') ? 'flex' : '';
-      navToggle.textContent = nav.classList.contains('open') ? '✕' : '☰';
-      navToggle.setAttribute('aria-expanded', String(nav.classList.contains('open')));
+      nav.classList.toggle('open');
+      const opened = nav.classList.contains('open');
+      nav.style.display = opened ? 'flex' : '';
+      navToggle.textContent = opened ? '✕' : '☰';
+      navToggle.setAttribute('aria-expanded', opened.toString());
     });
   }
 
-  // Modal for projects (improved: prevent body scroll, restore focus)
+  // Modale projets (ouvre/ferme)
   const modal = document.getElementById('modal');
   const modalTitle = document.getElementById('modalTitle');
   const modalDesc = document.getElementById('modalDesc');
   const modalMeta = document.getElementById('modalMeta');
   const modalClose = document.getElementById('modalClose');
   let lastFocusedEl = null;
-
   function openModal(title, desc, meta) {
     if (!modal) return;
     if (modalTitle) modalTitle.textContent = title || 'Détails';
@@ -76,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (modalMeta) modalMeta.textContent = meta || '';
     lastFocusedEl = document.activeElement;
     modal.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden'; // bloquer scroll fond
+    document.body.style.overflow = 'hidden';
     modal.focus();
   }
   function closeModal() {
@@ -91,57 +90,42 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
   }
 
-  // Project view buttons: capture any .view-btn and find nearest article[data-tech] or .project/.card
+  // Boutons "Voir" sur les projets
   document.querySelectorAll('.view-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
-      const card = e.target.closest('article[data-tech], .project, .card');
+      const card = e.target.closest('.card.project, article');
       if (!card) return;
       const title = card.dataset.title || card.querySelector('h3')?.textContent || 'Détails';
-      const desc = card.dataset.desc || 'Aucune description fournie.';
-      const tech = card.querySelector('.card-tags') ? card.querySelector('.card-tags').textContent : (card.dataset.tech || '');
+      const desc = card.dataset.desc || '';
+      const tech = card.querySelector('.card-tags') ? card.querySelector('.card-tags').textContent : card.dataset.tech || '';
       openModal(title, desc, tech);
     });
   });
 
-  // MiniWiki preview button (kept for backward compatibility)
-  const miniBtn = document.getElementById('open-miniwiki');
-  if (miniBtn) {
-    miniBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      openModal('MiniWiki', 'MiniWiki est une mini-encyclopédie de fiches biographiques avec recherche intelligente, autocomplétion et déploiement sur serveur Linux.', 'Technos: Django, PostgreSQL, Nginx');
-    });
-  }
-
-  // Filtering projects — robust: select articles that have data-tech
+  // Filtre par technologie (projects)
   const filter = document.getElementById('filterTech');
   if (filter) {
     filter.addEventListener('change', () => {
       const val = filter.value;
       document.querySelectorAll('article[data-tech]').forEach(card => {
-        if (val === 'all' || card.dataset.tech === val) {
-          card.style.display = '';
-        } else {
-          card.style.display = 'none';
-        }
+        card.style.display = (val === 'all' || card.dataset.tech === val) ? '' : 'none';
       });
     });
   }
 
-  // Skills bar animation on scroll (lightweight)
+  // Animation des barres de compétences
   const skillMeters = document.querySelectorAll('.meter span');
   const animateSkills = () => {
     skillMeters.forEach(bar => {
       const rect = bar.getBoundingClientRect();
-      const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+      const isVisible = (rect.top < window.innerHeight && rect.bottom > 0);
       if (isVisible && !bar.dataset.animated) {
         const target = (bar.style.width && bar.style.width.trim()) || '0%';
         bar.style.width = '0%';
         bar.style.transition = 'width 1.2s ease-out';
         requestAnimationFrame(() => {
-          requestAnimationFrame(() => {
-            bar.style.width = target;
-            bar.dataset.animated = 'true';
-          });
+          bar.style.width = target;
+          bar.dataset.animated = 'true';
         });
       }
     });
@@ -149,10 +133,10 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', animateSkills, { passive: true });
   animateSkills();
 
-  // Contact form handler (demo)
+  // Formulaire contact (simulation d'envoi)
   const contactForm = document.querySelector('.contact-form');
   if (contactForm) {
-    contactForm.addEventListener('submit', function handleContact(e) {
+    contactForm.addEventListener('submit', function(e) {
       e.preventDefault();
       const status = document.getElementById('contactStatus');
       if (status) status.textContent = 'Envoi en cours...';
