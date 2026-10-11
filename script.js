@@ -61,20 +61,30 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Modal (improved: trap focus, prevent background scroll)
+  // Modal (improved: trap focus, prevent background scroll, image preview)
   const modal = document.getElementById('modal');
   const modalTitle = document.getElementById('modalTitle');
   const modalDesc = document.getElementById('modalDesc');
   const modalMeta = document.getElementById('modalMeta');
+  const modalImg = document.getElementById('modalImg');
   const modalClose = document.getElementById('modalClose');
   let lastFocused = null;
 
-  function openModal(title, desc, meta) {
+  function openModal(title, desc, meta, imgSrc) {
     if (!modal) return;
     lastFocused = document.activeElement;
     if (modalTitle) modalTitle.textContent = title || '';
     if (modalDesc) modalDesc.textContent = desc || '';
     if (modalMeta) modalMeta.textContent = meta || '';
+    if (modalImg) {
+      if (imgSrc) {
+        modalImg.src = imgSrc;
+        modalImg.alt = title || 'Aperçu du projet';
+        modalImg.style.display = 'block';
+      } else {
+        modalImg.style.display = 'none';
+      }
+    }
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
     modal.focus();
@@ -99,17 +109,20 @@ document.addEventListener('DOMContentLoaded', () => {
       const title = card.dataset.title || card.querySelector('h3')?.textContent || 'Détails';
       const desc = card.dataset.desc || 'Aucune description fournie.';
       const tech = card.querySelector('.card-tags') ? card.querySelector('.card-tags').textContent : (card.dataset.tech || '');
-      openModal(title, desc, tech);
+      const imgSrc = card.querySelector('img')?.getAttribute('src') || '';
+      openModal(title, desc, tech, imgSrc);
     });
   });
 
-  // Filtering projects
+  // Filtering projects (supports multiple category tags in data-tech)
   const filter = document.getElementById('filterTech');
   if (filter) {
     filter.addEventListener('change', () => {
       const val = filter.value;
       document.querySelectorAll('article[data-tech]').forEach(card => {
-        card.style.display = (val === 'all' || card.dataset.tech === val) ? '' : 'none';
+        const techs = (card.dataset.tech || '').split(' ');
+        const matches = (val === 'all' || techs.includes(val) || card.dataset.tech === val);
+        card.style.display = matches ? '' : 'none';
       });
     });
   }
