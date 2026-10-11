@@ -41,7 +41,7 @@
           </div>
           <h1>Bonjour, je suis <strong>Mamadou Modibo Traoré</strong></h1>
           <p class="lead">
-            Développeur web & desktop, administrateur systèmes/réseaux, et créatif 2D/3D — je conçois des solutions fiables et esthétiques, optimisées pour la production et l’usage professionnel.
+            Développeur logiciel (.NET 9, C#, React PWA, Django, Astro), administrateur systèmes/réseaux et créateur numérique — je conçois des solutions complètes, performantes, résilientes (Offline-First) et optimisées pour la production.
           </p>
           <p class="hero-cta">
             <a class="btn-primary" href="#contact">Me contacter</a>
@@ -84,27 +84,103 @@
         <p class="section-sub">Exemples représentatifs de mes réalisations techniques et créatives. Cliquez sur "Voir" pour un résumé.</p>
         <div class="projects-grid" id="projectsGrid">
 
-          <!-- 1) ISTAG Manager -->
-          <article class="card project" data-tech="django" data-title="Système de gestion de notes — ISTAG" data-desc="Application web complète (Django) pour gérer étudiants, notes, semestres, et exports PDF/CSV. Authentification, rôles enseignants/admin, API REST.">
-            <img src="assets/istag_app.png" alt="Capture de l'application ISTAG" loading="lazy" width="1280" height="720">
+          <!-- 1) SchoolManager Desktop (.NET 9 / C# / IA) -->
+          <article class="card project" data-tech="dotnet desktop" data-title="SchoolManager — Progiciel de Gestion Scolaire & Financière" data-desc="Progiciel tout-en-un pour établissements scolaires (Mali & Afrique de l'Ouest) développé en architecture propre (.NET 9 / WPF). Conçu en Offline-First résilient avec SQLite et synchronisation Cloud chiffrée (Google Drive & Supabase). Intègre un moteur de calcul de bulletins scolaires conforme aux barèmes DAE/MEN, un guichet de caisse avec impression de reçus infalsifiables, la paie du personnel, un générateur d'emplois du temps par IA locale (LLM Qwen 2.5 1.5B ONNX), la répartition automatique des examens en salles, un compagnon mobile PWA avec scan QR code et un journal d'audit anti-fraude complet.">
+            <img src="assets/schoolmanager_app.png" alt="Interface de SchoolManager .NET 9" loading="lazy" width="1280" height="720">
             <div class="card-overlay">
               <div class="overlay-content">
-                <h3>ISTAG Manager</h3>
-                <p class="overlay-tech">Django • PostgreSQL</p>
+                <h3>SchoolManager 2026</h3>
+                <p class="overlay-tech">.NET 9 • C# • WPF • IA Qwen ONNX</p>
                 <button type="button" class="btn-sm view-btn">Voir détails</button>
               </div>
             </div>
             <div class="card-body">
-              <h3>Système de gestion de notes — ISTAG</h3>
-              <p class="card-tags">Python • Django • HTML • CSS • JavaScript • PostgreSQL</p>
+              <h3>SchoolManager — Progiciel Scolaire & Financier</h3>
+              <p class="card-tags">.NET 9 • C# • WPF • SQLite Offline-First • IA Locale (Qwen ONNX) • Supabase • Clean Architecture</p>
               <div class="card-actions">
                 <button type="button" class="btn-sm view-btn">Voir</button>
               </div>
             </div>
           </article>
 
-          <!-- 2) Logiciels console en C -->
-          <article class="card project" data-tech="c" data-title="Outils console en C" data-desc="Suite d'utilitaires console (C) : parsers, gestion de fichiers, et utilitaires optimisés pour machines limitées.">
+          <!-- 2) Quantix PWA (React 18 / Django REST) -->
+          <article class="card project" data-tech="react pwa" data-title="Quantix — Gestion de Finances Personnelles (PWA)" data-desc="Progressive Web App (PWA) full-stack pour le suivi budgétaire, l'épargne prédictive et la planification financière personnelle. Architecture Offline-First résiliente utilisant Dexie.js (IndexedDB local) et TanStack React Query avec synchronisation optimiste en arrière-plan. Interface moderne et réactive bâtie avec React 18, Vite, Material UI, Ant Design, Recharts pour les graphiques interactifs et Framer Motion pour les micro-animations. Backend sécurisé sous Django REST Framework avec authentification JWT, conformité RGPD, gestion multi-devises et exports comptables.">
+            <img src="assets/quantix_banner.png" alt="Aperçu de Quantix Finances PWA" loading="lazy" width="1280" height="720">
+            <div class="card-overlay">
+              <div class="overlay-content">
+                <h3>Quantix Finance</h3>
+                <p class="overlay-tech">React 18 • Vite • PWA • Django REST</p>
+                <button type="button" class="btn-sm view-btn">Voir détails</button>
+              </div>
+            </div>
+            <div class="card-body">
+              <h3>Quantix — Gestion de Finances (PWA)</h3>
+              <p class="card-tags">React 18 • Vite • PWA Offline-First • Dexie (IndexedDB) • Django REST • Recharts • Framer Motion</p>
+              <div class="card-actions">
+                <button type="button" class="btn-sm view-btn">Voir</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 3) SchoolManager Web Portal (Astro 7 / Tailwind CSS / Supabase) -->
+          <article class="card project" data-tech="astro web" data-title="SchoolManager Web — Portail Officiel & Documentation" data-desc="Site vitrine officiel, portail commercial et plateforme de documentation en ligne de la suite logicielle SchoolManager. Développé avec Astro 7 et Tailwind CSS v4 pour une vitesse de chargement et un score SEO optimaux. Comprend un système dynamique de notes de version (Changelog Markdown), un compilateur automatisé de documentation technique (build-docs.js), un module de vérification instantanée de clés de licence logicielle connecté à Supabase, et une grille tarifaire interactive avec liaison directe WhatsApp.">
+            <img src="assets/schoolmanager_site.png" alt="Portail Web SchoolManager Astro" loading="lazy" width="1280" height="720">
+            <div class="card-overlay">
+              <div class="overlay-content">
+                <h3>SchoolManager Web</h3>
+                <p class="overlay-tech">Astro 7 • Tailwind CSS v4 • Supabase</p>
+                <button type="button" class="btn-sm view-btn">Voir détails</button>
+              </div>
+            </div>
+            <div class="card-body">
+              <h3>SchoolManager Web — Portail & Documentation</h3>
+              <p class="card-tags">Astro 7 • Tailwind CSS v4 • Supabase • Netlify Functions • JavaScript • Markdown</p>
+              <div class="card-actions">
+                <button type="button" class="btn-sm view-btn">Voir</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 4) ISTAG Manager (Django / PostgreSQL) -->
+          <article class="card project" data-tech="django web" data-title="Système de gestion de notes — ISTAG" data-desc="Application web de gestion académique conçue sur mesure pour l'institut ISTAG Golf de Bamako. Permet la gestion hiérarchique des étudiants, enseignants et administrateurs, le calcul automatique des moyennes pondérées par matières et semestres, la détection des mentions et la génération dynamique de bulletins de notes officiels aux formats PDF et Excel.">
+            <img src="assets/istag_app.png" alt="Capture de l'application ISTAG" loading="lazy" width="1280" height="720">
+            <div class="card-overlay">
+              <div class="overlay-content">
+                <h3>ISTAG Manager</h3>
+                <p class="overlay-tech">Django • PostgreSQL • Bootstrap</p>
+                <button type="button" class="btn-sm view-btn">Voir détails</button>
+              </div>
+            </div>
+            <div class="card-body">
+              <h3>Système de gestion de notes — ISTAG</h3>
+              <p class="card-tags">Python • Django • HTML • CSS • JavaScript • PostgreSQL • Bootstrap</p>
+              <div class="card-actions">
+                <button type="button" class="btn-sm view-btn">Voir</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 5) MIPEKIA / MiniWiki (Django / HTMX / Linux) -->
+          <article class="card project" data-tech="django web" data-title="MIPEKIA / MiniWiki — Plateforme Sociale & Encyclopédie" data-desc="Plateforme sociale hybride et encyclopédie biographique communautaire. Développée avec Django, HTMX et PostgreSQL. Propose des fiches biographiques enrichies avec recherche intelligente et autocomplétion, des profils utilisateurs détaillés, une messagerie privée multi-formats (texte, audio, vidéo), un module de jeu gamifié, et un déploiement robuste sous serveur Linux avec Nginx, Gunicorn et tunnel ngrok.">
+            <img src="assets/Mikedia_shoot.png" alt="MIPEKIA MiniWiki - capture d'écran" loading="lazy" width="1280" height="720">
+            <div class="card-overlay">
+              <div class="overlay-content">
+                <h3>MIPEKIA</h3>
+                <p class="overlay-tech">Django • HTMX • PostgreSQL • Nginx</p>
+                <button type="button" class="btn-sm view-btn">Aperçu</button>
+              </div>
+            </div>
+            <div class="card-body">
+              <h3>MIPEKIA / MiniWiki — Plateforme Sociale</h3>
+              <p class="card-tags">Django • HTMX • PostgreSQL • Nginx • Gunicorn • Bootstrap</p>
+              <div class="card-actions">
+                <button type="button" class="btn btn-outline view-btn">Aperçu</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 6) Logiciels console en C -->
+          <article class="card project" data-tech="c" data-title="Logiciels console en C & Outils Système" data-desc="Suite d'utilitaires console et d'outils système développés en langage C : parseurs de données, algorithmes de tri et de recherche, gestion bas niveau de fichiers et structures de données optimisées pour des environnements à ressources restreintes.">
             <img src="assets/c_console.png" alt="Exemple d'outil console en C" loading="lazy" width="1280" height="720">
             <div class="card-overlay">
               <div class="overlay-content">
@@ -114,16 +190,54 @@
               </div>
             </div>
             <div class="card-body">
-              <h3>Logiciels console (C)</h3>
-              <p class="card-tags">C • Makefile • Optimisation mémoire</p>
+              <h3>Logiciels console (C) & Outils Système</h3>
+              <p class="card-tags">C • Makefile • Optimisation mémoire • Algorithmique</p>
               <div class="card-actions">
                 <button type="button" class="btn-sm view-btn">Voir</button>
               </div>
             </div>
           </article>
 
-          <!-- 3) Arts visuels 2D -->
-          <article class="card project" data-tech="art2d" data-title="Créations 2D & Motion" data-desc="Travaux en After Effects & Photoshop : animations, motion design, posters, et assets UI/marketing.">
+          <!-- 7) Admin Systèmes / Réseaux -->
+          <article class="card project" data-tech="sysadmin" data-title="Infrastructure & Administration Systèmes Linux / Réseaux" data-desc="Déploiement et administration d'infrastructures serveurs sécurisées sous Linux et Windows Server : configuration de serveurs Web (Nginx/Apache), serveurs DNS (BIND), attribution DHCP, translation PAT/NAT, solutions de stockage réseau NAS, scripts Bash d'automatisation des sauvegardes et supervision système.">
+            <img src="assets/sysadmin.png" alt="Schéma d'infrastructure / serveurs" loading="lazy" width="1280" height="720">
+            <div class="card-overlay">
+              <div class="overlay-content">
+                <h3>Admin Systèmes / Réseaux</h3>
+                <p class="overlay-tech">Linux • Nginx • BIND • DHCP • NAS</p>
+                <button type="button" class="btn-sm view-btn">Voir détails</button>
+              </div>
+            </div>
+            <div class="card-body">
+              <h3>Admin Systèmes & Réseaux</h3>
+              <p class="card-tags">Linux • Nginx • BIND • DHCP • NAS • Active Directory • Bash</p>
+              <div class="card-actions">
+                <button type="button" class="btn-sm view-btn">Voir</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 8) Optimisation Windows -->
+          <article class="card project" data-tech="windows sysadmin" data-title="Optimisation & Automatisation Windows" data-desc="Scripts avancés PowerShell et protocoles de maintenance client : optimisation des performances pour machines à ressources limitées, gestion fine des comptes et des stratégies de groupe, nettoyage automatisé, durcissement de la sécurité et diagnostics système.">
+            <img src="assets/windows_opt.png" alt="Optimisation Windows" loading="lazy" width="1280" height="720">
+            <div class="card-overlay">
+              <div class="overlay-content">
+                <h3>Optimisation Windows</h3>
+                <p class="overlay-tech">Windows • PowerShell • Optimisation • Administration client</p>
+                <button type="button" class="btn-sm view-btn">Voir détails</button>
+              </div>
+            </div>
+            <div class="card-body">
+              <h3>Optimisation & Maintenance Windows</h3>
+              <p class="card-tags">Windows • PowerShell • Optimisation • Administration client • Sécurité</p>
+              <div class="card-actions">
+                <button type="button" class="btn-sm view-btn">Voir</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 9) Arts visuels 2D -->
+          <article class="card project" data-tech="art2d" data-title="Arts visuels — 2D & Motion Design" data-desc="Créations graphiques et animations vidéo : génériques, typographies cinétiques et animations promotionnelles sur Adobe After Effects ; affiches publicitaires, retouche photo avancée, maquettes UI et supports marketing sur Photoshop.">
             <img src="assets/art_2d.png" alt="Exemple artwork 2D" loading="lazy" width="1280" height="720">
             <div class="card-overlay">
               <div class="overlay-content">
@@ -134,15 +248,15 @@
             </div>
             <div class="card-body">
               <h3>Arts visuels — 2D / Motion</h3>
-              <p class="card-tags">After Effects • Photoshop • Motion design</p>
+              <p class="card-tags">After Effects • Photoshop • Motion design • Graphisme</p>
               <div class="card-actions">
                 <button type="button" class="btn-sm view-btn">Voir</button>
               </div>
             </div>
           </article>
 
-          <!-- 4) Projets 3D -->
-          <article class="card project" data-tech="art3d" data-title="Projets 3D (Maya / Substance)" data-desc="Modélisation et texturing (Maya, Substance Painter) — assets 3D, rendu, optimisation pour pipeline.">
+          <!-- 10) Projets 3D -->
+          <article class="card project" data-tech="art3d" data-title="3D — Modélisation & Texturing (Maya / Substance)" data-desc="Conception d'assets et d'environnements 3D : modélisation polygonale optimisée (hard surface et props) sous Autodesk Maya, texturing PBR réaliste sous Substance Painter, gestion de l'éclairage et rendus professionnels.">
             <img src="assets/art_3d.png" alt="Exemple rendu 3D" loading="lazy" width="1280" height="720">
             <div class="card-overlay">
               <div class="overlay-content">
@@ -153,64 +267,7 @@
             </div>
             <div class="card-body">
               <h3>3D — Modélisation & texturing</h3>
-              <p class="card-tags">Autodesk Maya • Substance Painter • Rendu</p>
-              <div class="card-actions">
-                <button type="button" class="btn-sm view-btn">Voir</button>
-              </div>
-            </div>
-          </article>
-
-          <!-- 5) Admin Systèmes / Réseaux -->
-          <article class="card project" data-tech="sysadmin" data-title="Infrastructure & serveurs (Linux)" data-desc="Mise en place de serveurs Web, DNS, DHCP, PAT, NAS; scripts d'automatisation; sauvegarde et surveillance.">
-            <img src="assets/sysadmin.png" alt="Schéma d'infrastructure / serveurs" loading="lazy" width="1280" height="720">
-            <div class="card-overlay">
-              <div class="overlay-content">
-                <h3>Admin Systèmes / Réseaux</h3>
-                <p class="overlay-tech">Linux • Nginx • BIND • DHCP • NAS</p>
-                <button type="button" class="btn-sm view-btn">Voir détails</button>
-              </div>
-            </div>
-            <div class="card-body">
-              <h3>Admin Systèmes / Réseaux</h3>
-              <p class="card-tags">Linux • Nginx • BIND • DHCP • NAS</p>
-              <div class="card-actions">
-                <button type="button" class="btn-sm view-btn">Voir</button>
-              </div>
-            </div>
-          </article>
-
-          <!-- 6) MiniWiki -->
-          <article class="card project" data-tech="django" data-title="MiniWiki — mini-encyclopédie" data-desc="MiniWiki est une mini-encyclopédie de fiches biographiques avec recherche intelligente, autocomplétion et déploiement sur serveur Linux.">
-            <img src="assets/Mikedia_shoot.png" alt="MiniWiki - capture d'écran" loading="lazy" width="1280" height="720">
-            <div class="card-overlay">
-              <div class="overlay-content">
-                <h3>MiniWiki</h3>
-                <p class="overlay-tech">Django • PostgreSQL • Nginx • Bootstrap</p>
-                <button type="button" class="btn-sm view-btn">Aperçu</button>
-              </div>
-            </div>
-            <div class="card-body">
-              <h3>MiniWiki — mini-encyclopédie</h3>
-              <p class="card-tags">Django • PostgreSQL • Nginx • Bootstrap</p>
-              <div class="card-actions">
-                <button type="button" class="btn btn-outline view-btn">Aperçu</button>
-              </div>
-            </div>
-          </article>
-
-          <!-- 7) Optimisation Windows -->
-          <article class="card project" data-tech="windows" data-title="Optimisation & maintenance Windows" data-desc="Optimisation des ressources, gestion utilisateurs & droits, scripts d'automatisation pour machines peu performantes.">
-            <img src="assets/windows_opt.png" alt="Optimisation Windows" loading="lazy" width="1280" height="720">
-            <div class="card-overlay">
-              <div class="overlay-content">
-                <h3>Optimisation Windows</h3>
-                <p class="overlay-tech">Windows • PowerShell • Optimisation • Administration client</p>
-                <button type="button" class="btn-sm view-btn">Voir détails</button>
-              </div>
-            </div>
-            <div class="card-body">
-              <h3>Optimisation Windows</h3>
-              <p class="card-tags">Windows • PowerShell • Optimisation • Administration client</p>
+              <p class="card-tags">Autodesk Maya • Substance Painter • Rendu • Pipeline 3D</p>
               <div class="card-actions">
                 <button type="button" class="btn-sm view-btn">Voir</button>
               </div>
@@ -220,15 +277,18 @@
         </div>
 
         <div class="projects-controls">
-          <label>Filtre :
-            <select id="filterTech">
-              <option value="all">Tous</option>
-              <option value="django">Django</option>
-              <option value="c">C (console)</option>
-              <option value="art2d">2D</option>
-              <option value="art3d">3D</option>
-              <option value="sysadmin">Sysadmin</option>
-              <option value="windows">Windows</option>
+          <label>Filtrer par domaine :
+            <select id="filterTech" aria-label="Filtrer les projets par domaine">
+              <option value="all">Tous les projets (10)</option>
+              <option value="dotnet">.NET 9 / C# (Desktop & IA)</option>
+              <option value="react">React / PWA (Web App)</option>
+              <option value="astro">Astro / Site Web</option>
+              <option value="django">Django / Python</option>
+              <option value="c">Langage C (Console)</option>
+              <option value="sysadmin">Systèmes & Réseaux</option>
+              <option value="windows">Optimisation Windows</option>
+              <option value="art2d">Arts 2D / Motion</option>
+              <option value="art3d">3D & Modélisation</option>
             </select>
           </label>
         </div>
@@ -240,25 +300,25 @@
       <div class="container about-grid">
         <div>
           <h2>À propos</h2>
-          <p>Ingénieur généraliste orienté informatique : développement logiciel & web, administration systèmes/réseaux, et création numérique. J'équilibre rigueur technique et sens esthétique pour livrer des projets fiables, maintenables et optimisés.</p>
+          <p>Ingénieur généraliste orienté informatique : développement d'applications desktop (.NET/C#), web & mobile (React PWA, Django, Astro), administration systèmes/réseaux, et création numérique 2D/3D. J'équilibre rigueur algorithmique, architecture logicielle propre et sens ergonomique pour livrer des solutions résilientes, maintenables et optimisées pour la production.</p>
           <ul>
-            <li><strong>Projets clés</strong> : Système de gestion ISTAG (Django), suite d'outils C, pipelines 2D/3D.</li>
-            <li><strong>Formations</strong> : Ingénierie Informatique & auto-formation continue.</li>
+            <li><strong>Projets majeurs</strong> : SchoolManager (.NET 9 / WPF / IA locale Qwen), Quantix (React 18 / PWA Offline-First), SchoolManager Web (Astro 7), ISTAG & MIPEKIA (Django).</li>
+            <li><strong>Formations & Profil</strong> : Ingénierie Informatique, certifié développement & veille technologique continue.</li>
             <li><strong>Langues</strong> : Français & Anglais.</li>
           </ul>
         </div>
         <div class="about-stats">
           <div class="stat">
             <strong>10+</strong>
-            <span>Projets réalisés</span>
+            <span>Projets réalisés & vitrine</span>
           </div>
           <div class="stat">
-            <strong>Infra</strong>
-            <span>Web, DNS, DHCP, NAS</span>
+            <strong>Desktop & Web</strong>
+            <span>.NET 9, React PWA, Django</span>
           </div>
           <div class="stat">
-            <strong>2D/3D</strong>
-            <span>Motion & assets 3D</span>
+            <strong>Infra & 2D/3D</strong>
+            <span>Linux, Réseaux, Maya, AE</span>
           </div>
         </div>
       </div>
@@ -271,34 +331,34 @@
         <div class="skills-grid">
           <!-- Skills bars now use data-width attributes -->
           <div class="skill">
-            <h4><span class="skill-icon">💻</span> Web / Frontend</h4>
+            <h4><span class="skill-icon">💻</span> Web / Frontend & PWA</h4>
+            <div class="meter"><span data-width="94%"></span></div>
+            <small>React 18 • Vite • PWA Offline-First • Astro 7 • Tailwind CSS • Dexie (IndexedDB) • JavaScript ES6+</small>
+          </div>
+          <div class="skill">
+            <h4><span class="skill-icon">🐍</span> Backend & API REST</h4>
+            <div class="meter"><span data-width="90%"></span></div>
+            <small>Python • Django • Django REST Framework • HTMX • PostgreSQL • SQLite • Auth JWT</small>
+          </div>
+          <div class="skill">
+            <h4><span class="skill-icon">⚙️</span> Desktop & IA Embarquée</h4>
             <div class="meter"><span data-width="92%"></span></div>
-            <small>HTML • CSS • JavaScript • React (bases)</small>
-          </div>
-          <div class="skill">
-            <h4><span class="skill-icon">🐍</span> Backend / Django</h4>
-            <div class="meter"><span data-width="88%"></span></div>
-            <small>Python • Django • REST • PostgreSQL</small>
-          </div>
-          <div class="skill">
-            <h4><span class="skill-icon">⚙️</span> Langages natifs</h4>
-            <div class="meter"><span data-width="89%"></span></div>
-            <small>C • C++ • C# • Python • Java</small>
+            <small>C# (.NET 9, WPF, Clean Architecture) • C (système) • IA locale ONNX (Qwen) • Supabase</small>
           </div>
           <div class="skill">
             <h4><span class="skill-icon">🖥️</span> Admin Systèmes & Réseaux</h4>
             <div class="meter"><span data-width="90%"></span></div>
-            <small>Linux servers, Nginx, BIND, DHCP, NAS, Active Directory</small>
+            <small>Serveurs Linux, Nginx, BIND DNS, DHCP, NAS, Active Directory, Cloudflare Tunnels</small>
           </div>
           <div class="skill">
             <h4><span class="skill-icon">🎨</span> Arts visuels 2D/3D</h4>
-            <div class="meter"><span data-width="82%"></span></div>
-            <small>After Effects • Photoshop • Maya • Substance Painter</small>
+            <div class="meter"><span data-width="85%"></span></div>
+            <small>After Effects • Photoshop • Autodesk Maya • Substance Painter • Motion Design</small>
           </div>
           <div class="skill">
-            <h4><span class="skill-icon">⚡</span> Optimisation Windows</h4>
-            <div class="meter"><span data-width="86%"></span></div>
-            <small>PowerShell, gestion utilisateurs, optimisation ressources</small>
+            <h4><span class="skill-icon">⚡</span> Optimisation Windows & Scripts</h4>
+            <div class="meter"><span data-width="88%"></span></div>
+            <small>PowerShell, administration de parcs, optimisation ressources & scripts automatisés</small>
           </div>
         </div>
       </div>
@@ -344,7 +404,7 @@
       <div class="container">
         <h2 class="section-title">MIKEPIA(serveur local)</h2>
         <p class="section-sub">Le projet <strong>MiniWiki</strong> est déployé localement et accéssible via  tunnel ngroks. Utilisez le lien ci-dessous pour y accéder.</p>
-        <p><a class="btn-primary" href="https://reattachable-ruthie-unwashable.ngrok-free.dev/" target="_blank" rel="noopener noreferrer">Accéder à MiniWiki (localhost)</a></p>
+        <p><a class="btn-primary" href="https://mipekia.quantix.qzz.io/" target="_blank" rel="noopener noreferrer">Accéder à MiniWiki (localhost)</a></p>
       </div>
     </section>
 
@@ -382,6 +442,9 @@
   <div id="modal" class="modal" aria-hidden="true" tabindex="-1">
     <div class="modal-inner" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
       <button type="button" id="modalClose" class="modal-close" aria-label="Fermer">✕</button>
+      <div class="modal-media" id="modalMedia">
+        <img id="modalImg" class="modal-img" src="" alt="" style="display:none;" />
+      </div>
       <h3 id="modalTitle"></h3>
       <p id="modalDesc"></p>
       <p class="modal-meta" id="modalMeta"></p>
