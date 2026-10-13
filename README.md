@@ -11,9 +11,9 @@ Bienvenue sur le dépôt officiel de mon portfolio professionnel. Ce site prése
    * Architecture *Offline-First* (SQLite), calcul automatique des bulletins scolaires conforme aux barèmes DAE/MEN, guichet caisse avec reçus infalsifiables, paie, générateur d'emplois du temps par IA locale (modèle ONNX Qwen 2.5 1.5B intégré), répartition automatisée des examens en salles, compagnon mobile PWA et sauvegardes chiffrées Cloud (Google Drive / Supabase).
 
 2. **Quantix Finance** (React 18 / Vite / PWA / Django REST Framework) :
-   * **Application en ligne (Vercel)** : [https://quantix-finance-1c32.vercel.app/](https://quantix-finance-1c32.vercel.app/)
-   * Application PWA Full-Stack de gestion financière personnelle, suivi budgétaire et planification d'épargne.
-   * Mode *Offline-First* avec Dexie.js (IndexedDB) et TanStack Query, visualisations interactives Recharts, animations Framer Motion, et backend sécurisé sous Django REST Framework (authentification JWT, RGPD).
+   * **Frontend PWA en ligne (Vercel)** : [https://quantix-finance-1c32.vercel.app/](https://quantix-finance-1c32.vercel.app/)
+   * **Architecture Hybride** : Frontend déployé sur Vercel pour une accessibilité continue 24/7, communiquant par API REST sécurisée avec le backend Django REST Framework hébergé sur mon serveur local personnel.
+   * Mode *Offline-First* résilient avec Dexie.js (IndexedDB) et TanStack Query assurant un fonctionnement ininterrompu même en cas de coupure de liaison avec le serveur local, visualisations interactives Recharts, animations Framer Motion, et sécurité avancée (authentification JWT, RGPD).
 
 3. **SchoolManager Web** (Astro 7 / Tailwind CSS v4 / Supabase / Netlify) :
    * **Site vitrine & portail en ligne** : [https://schoolmanager.qzz.io/](https://schoolmanager.qzz.io/)
