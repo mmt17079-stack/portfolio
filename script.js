@@ -67,10 +67,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalDesc = document.getElementById('modalDesc');
   const modalMeta = document.getElementById('modalMeta');
   const modalImg = document.getElementById('modalImg');
+  const modalLiveBtn = document.getElementById('modalLiveBtn');
+  const modalActions = document.getElementById('modalActions');
   const modalClose = document.getElementById('modalClose');
   let lastFocused = null;
 
-  function openModal(title, desc, meta, imgSrc) {
+  function openModal(title, desc, meta, imgSrc, liveUrl) {
     if (!modal) return;
     lastFocused = document.activeElement;
     if (modalTitle) modalTitle.textContent = title || '';
@@ -83,6 +85,14 @@ document.addEventListener('DOMContentLoaded', () => {
         modalImg.style.display = 'block';
       } else {
         modalImg.style.display = 'none';
+      }
+    }
+    if (modalActions && modalLiveBtn) {
+      if (liveUrl) {
+        modalLiveBtn.href = liveUrl;
+        modalActions.style.display = 'block';
+      } else {
+        modalActions.style.display = 'none';
       }
     }
     modal.setAttribute('aria-hidden', 'false');
@@ -110,7 +120,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const desc = card.dataset.desc || 'Aucune description fournie.';
       const tech = card.querySelector('.card-tags') ? card.querySelector('.card-tags').textContent : (card.dataset.tech || '');
       const imgSrc = card.querySelector('img')?.getAttribute('src') || '';
-      openModal(title, desc, tech, imgSrc);
+      const liveUrl = card.dataset.url || '';
+      openModal(title, desc, tech, imgSrc, liveUrl);
     });
   });
 

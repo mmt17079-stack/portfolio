@@ -11,10 +11,12 @@ Bienvenue sur le dépôt officiel de mon portfolio professionnel. Ce site prése
    * Architecture *Offline-First* (SQLite), calcul automatique des bulletins scolaires conforme aux barèmes DAE/MEN, guichet caisse avec reçus infalsifiables, paie, générateur d'emplois du temps par IA locale (modèle ONNX Qwen 2.5 1.5B intégré), répartition automatisée des examens en salles, compagnon mobile PWA et sauvegardes chiffrées Cloud (Google Drive / Supabase).
 
 2. **Quantix Finance** (React 18 / Vite / PWA / Django REST Framework) :
+   * **Application en ligne (Vercel)** : [https://quantix-finance-1c32.vercel.app/](https://quantix-finance-1c32.vercel.app/)
    * Application PWA Full-Stack de gestion financière personnelle, suivi budgétaire et planification d'épargne.
    * Mode *Offline-First* avec Dexie.js (IndexedDB) et TanStack Query, visualisations interactives Recharts, animations Framer Motion, et backend sécurisé sous Django REST Framework (authentification JWT, RGPD).
 
 3. **SchoolManager Web** (Astro 7 / Tailwind CSS v4 / Supabase / Netlify) :
+   * **Site vitrine & portail en ligne** : [https://schoolmanager.qzz.io/](https://schoolmanager.qzz.io/)
    * Vitrine commerciale, portail officiel et plateforme documentaire pour SchoolManager.
    * Génération automatique de documentation technique (`build-docs.js`), système de Changelog dynamique en Markdown, et vérification instantanée de licences logicielles via Supabase.
 
@@ -22,6 +24,7 @@ Bienvenue sur le dépôt officiel de mon portfolio professionnel. Ce site prése
    * Application web de gestion académique sur mesure : notes, semestres, délibérations et génération dynamique de bulletins de notes officiels PDF et Excel.
 
 5. **MIPEKIA / MiniWiki** (Django / HTMX / PostgreSQL / Linux) :
+   * **Service en ligne (Tunnel)** : [https://mipekia.quantix.qzz.io/](https://mipekia.quantix.qzz.io/)
    * Réseau social hybride et encyclopédie biographique communautaire avec recherche intelligente, autocomplétion, messagerie privée multi-formats et déploiement sur serveur Linux (Nginx/Gunicorn).
 
 6. **Logiciels Console en C** (C / Makefile / Optimisation mémoire) :

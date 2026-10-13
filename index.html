@@ -25,6 +25,7 @@
         <a href="#projects">Projets</a>
         <a href="#about">À propos</a>
         <a href="#skills">Compétences</a>
+        <a href="#miniwiki-local">Démos en ligne</a>
         <a href="#contact" class="btn-outline">Contact</a>
       </nav>
       <button type="button" id="navToggle" class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
@@ -102,13 +103,16 @@
           </article>
 
           <!-- 2) Quantix PWA (React 18 / Django REST) -->
-          <article class="card project" data-tech="react pwa" data-title="Quantix — Gestion de Finances Personnelles (PWA)" data-desc="Progressive Web App (PWA) full-stack pour le suivi budgétaire, l'épargne prédictive et la planification financière personnelle. Architecture Offline-First résiliente utilisant Dexie.js (IndexedDB local) et TanStack React Query avec synchronisation optimiste en arrière-plan. Interface moderne et réactive bâtie avec React 18, Vite, Material UI, Ant Design, Recharts pour les graphiques interactifs et Framer Motion pour les micro-animations. Backend sécurisé sous Django REST Framework avec authentification JWT, conformité RGPD, gestion multi-devises et exports comptables.">
+          <article class="card project" data-tech="react pwa" data-url="https://quantix-finance-1c32.vercel.app/" data-title="Quantix — Gestion de Finances Personnelles (PWA)" data-desc="Progressive Web App (PWA) full-stack pour le suivi budgétaire, l'épargne prédictive et la planification financière personnelle. Architecture Offline-First résiliente utilisant Dexie.js (IndexedDB local) et TanStack React Query avec synchronisation optimiste en arrière-plan. Interface moderne et réactive bâtie avec React 18, Vite, Material UI, Ant Design, Recharts pour les graphiques interactifs et Framer Motion pour les micro-animations. Backend sécurisé sous Django REST Framework avec authentification JWT, conformité RGPD, gestion multi-devises et exports comptables.">
             <img src="assets/quantix_banner.png" alt="Aperçu de Quantix Finances PWA" loading="lazy" width="1280" height="720">
             <div class="card-overlay">
               <div class="overlay-content">
                 <h3>Quantix Finance</h3>
                 <p class="overlay-tech">React 18 • Vite • PWA • Django REST</p>
-                <button type="button" class="btn-sm view-btn">Voir détails</button>
+                <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">
+                  <button type="button" class="btn-sm view-btn">Voir détails</button>
+                  <a href="https://quantix-finance-1c32.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-sm" title="Ouvrir l'application en ligne">Démo ↗</a>
+                </div>
               </div>
             </div>
             <div class="card-body">
@@ -116,18 +120,22 @@
               <p class="card-tags">React 18 • Vite • PWA Offline-First • Dexie (IndexedDB) • Django REST • Recharts • Framer Motion</p>
               <div class="card-actions">
                 <button type="button" class="btn-sm view-btn">Voir</button>
+                <a href="https://quantix-finance-1c32.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-sm" title="Ouvrir l'application en ligne">Démo ↗</a>
               </div>
             </div>
           </article>
 
           <!-- 3) SchoolManager Web Portal (Astro 7 / Tailwind CSS / Supabase) -->
-          <article class="card project" data-tech="astro web" data-title="SchoolManager Web — Portail Officiel & Documentation" data-desc="Site vitrine officiel, portail commercial et plateforme de documentation en ligne de la suite logicielle SchoolManager. Développé avec Astro 7 et Tailwind CSS v4 pour une vitesse de chargement et un score SEO optimaux. Comprend un système dynamique de notes de version (Changelog Markdown), un compilateur automatisé de documentation technique (build-docs.js), un module de vérification instantanée de clés de licence logicielle connecté à Supabase, et une grille tarifaire interactive avec liaison directe WhatsApp.">
+          <article class="card project" data-tech="astro web" data-url="https://schoolmanager.qzz.io/" data-title="SchoolManager Web — Portail Officiel & Documentation" data-desc="Site vitrine officiel, portail commercial et plateforme de documentation en ligne de la suite logicielle SchoolManager. Développé avec Astro 7 et Tailwind CSS v4 pour une vitesse de chargement et un score SEO optimaux. Comprend un système dynamique de notes de version (Changelog Markdown), un compilateur automatisé de documentation technique (build-docs.js), un module de vérification instantanée de clés de licence logicielle connecté à Supabase, et une grille tarifaire interactive avec liaison directe WhatsApp.">
             <img src="assets/schoolmanager_site.png" alt="Portail Web SchoolManager Astro" loading="lazy" width="1280" height="720">
             <div class="card-overlay">
               <div class="overlay-content">
                 <h3>SchoolManager Web</h3>
                 <p class="overlay-tech">Astro 7 • Tailwind CSS v4 • Supabase</p>
-                <button type="button" class="btn-sm view-btn">Voir détails</button>
+                <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">
+                  <button type="button" class="btn-sm view-btn">Voir détails</button>
+                  <a href="https://schoolmanager.qzz.io/" target="_blank" rel="noopener noreferrer" class="btn-sm" title="Visiter le site en ligne">Visiter ↗</a>
+                </div>
               </div>
             </div>
             <div class="card-body">
@@ -135,6 +143,7 @@
               <p class="card-tags">Astro 7 • Tailwind CSS v4 • Supabase • Netlify Functions • JavaScript • Markdown</p>
               <div class="card-actions">
                 <button type="button" class="btn-sm view-btn">Voir</button>
+                <a href="https://schoolmanager.qzz.io/" target="_blank" rel="noopener noreferrer" class="btn-sm" title="Visiter le site en ligne">Visiter ↗</a>
               </div>
             </div>
           </article>
@@ -159,13 +168,16 @@
           </article>
 
           <!-- 5) MIPEKIA / MiniWiki (Django / HTMX / Linux) -->
-          <article class="card project" data-tech="django web" data-title="MIPEKIA / MiniWiki — Plateforme Sociale & Encyclopédie" data-desc="Plateforme sociale hybride et encyclopédie biographique communautaire. Développée avec Django, HTMX et PostgreSQL. Propose des fiches biographiques enrichies avec recherche intelligente et autocomplétion, des profils utilisateurs détaillés, une messagerie privée multi-formats (texte, audio, vidéo), un module de jeu gamifié, et un déploiement robuste sous serveur Linux avec Nginx, Gunicorn et tunnel ngrok.">
+          <article class="card project" data-tech="django web" data-url="https://mipekia.quantix.qzz.io/" data-title="MIPEKIA / MiniWiki — Plateforme Sociale & Encyclopédie" data-desc="Plateforme sociale hybride et encyclopédie biographique communautaire. Développée avec Django, HTMX et PostgreSQL. Propose des fiches biographiques enrichies avec recherche intelligente et autocomplétion, des profils utilisateurs détaillés, une messagerie privée multi-formats (texte, audio, vidéo), un module de jeu gamifié, et un déploiement robuste sous serveur Linux avec Nginx, Gunicorn et tunnel ngrok.">
             <img src="assets/Mikedia_shoot.png" alt="MIPEKIA MiniWiki - capture d'écran" loading="lazy" width="1280" height="720">
             <div class="card-overlay">
               <div class="overlay-content">
                 <h3>MIPEKIA</h3>
                 <p class="overlay-tech">Django • HTMX • PostgreSQL • Nginx</p>
-                <button type="button" class="btn-sm view-btn">Aperçu</button>
+                <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">
+                  <button type="button" class="btn-sm view-btn">Aperçu</button>
+                  <a href="https://mipekia.quantix.qzz.io/" target="_blank" rel="noopener noreferrer" class="btn-sm" title="Accéder au service">Démo ↗</a>
+                </div>
               </div>
             </div>
             <div class="card-body">
@@ -173,6 +185,7 @@
               <p class="card-tags">Django • HTMX • PostgreSQL • Nginx • Gunicorn • Bootstrap</p>
               <div class="card-actions">
                 <button type="button" class="btn btn-outline view-btn">Aperçu</button>
+                <a href="https://mipekia.quantix.qzz.io/" target="_blank" rel="noopener noreferrer" class="btn-sm" title="Accéder au service">Démo ↗</a>
               </div>
             </div>
           </article>
@@ -397,12 +410,39 @@
       </div>
     </section>
 
-    <!-- MiniWiki — lien vers serveur local (déporté en bas) -->
+    <!-- 1) MiniWiki (MIPEKIA) — Déploiement serveur -->
     <section id="miniwiki-local" class="section alt">
       <div class="container">
-        <h2 class="section-title">MIKEPIA(serveur local)</h2>
-        <p class="section-sub">Le projet <strong>MiniWiki</strong> est déployé localement et accéssible via  tunnel ngroks. Utilisez le lien ci-dessous pour y accéder.</p>
-        <p><a class="btn-primary" href="https://mipekia.quantix.qzz.io/" target="_blank" rel="noopener noreferrer">Accéder à MiniWiki (localhost)</a></p>
+        <div class="availability-badge" aria-hidden="true" style="margin-bottom: 12px;">
+          <span class="dot"></span> Service en ligne (Tunnel sécurisé)
+        </div>
+        <h2 class="section-title">MIPEKIA / MiniWiki (Plateforme sociale & encyclopédie)</h2>
+        <p class="section-sub">Le projet <strong>MIPEKIA (MiniWiki)</strong> est déployé sur serveur Linux et accessible en ligne via tunnel sécurisé. Découvrez l'annuaire biographique, la recherche instantanée et les fonctionnalités communautaires.</p>
+        <p><a class="btn-primary" href="https://mipekia.quantix.qzz.io/" target="_blank" rel="noopener noreferrer">🌐 Accéder à MIPEKIA / MiniWiki</a></p>
+      </div>
+    </section>
+
+    <!-- 2) Quantix Finance — Application PWA en ligne -->
+    <section id="quantix-live" class="section">
+      <div class="container">
+        <div class="availability-badge" aria-hidden="true" style="margin-bottom: 12px;">
+          <span class="dot"></span> Déployé en production (Vercel)
+        </div>
+        <h2 class="section-title">Quantix Finance (Application PWA en ligne)</h2>
+        <p class="section-sub">L'application web progressive <strong>Quantix</strong> pour la gestion budgétaire, l'épargne prédictive et les finances personnelles (React 18 & Offline-First) est déployée sur Vercel. Testez l'interface moderne, les graphiques interactifs et l'expérience PWA.</p>
+        <p><a class="btn-primary" href="https://quantix-finance-1c32.vercel.app/" target="_blank" rel="noopener noreferrer">📊 Accéder à Quantix Finance (Vercel)</a></p>
+      </div>
+    </section>
+
+    <!-- 3) SchoolManager — Site Vitrine & Portail Web Officiel -->
+    <section id="schoolmanager-live" class="section alt">
+      <div class="container">
+        <div class="availability-badge" aria-hidden="true" style="margin-bottom: 12px;">
+          <span class="dot"></span> Site officiel en ligne
+        </div>
+        <h2 class="section-title">SchoolManager (Site Vitrine & Portail Web Officiel)</h2>
+        <p class="section-sub">Le site vitrine officiel, la documentation technique interactive et la présentation commerciale de la suite logicielle <strong>SchoolManager</strong> (Astro 7 & Tailwind CSS v4) sont déployés et consultables en direct.</p>
+        <p><a class="btn-primary" href="https://schoolmanager.qzz.io/" target="_blank" rel="noopener noreferrer">🏫 Visiter le site vitrine SchoolManager</a></p>
       </div>
     </section>
 
@@ -414,6 +454,7 @@
         <p>&copy; <span id="year"></span> MMT — Portfolio. <small>Optimisé pour recruteurs et démonstrations techniques.</small></p>
         <p class="footer-links">
           <a href="#projects">Projets</a>
+          <a href="#miniwiki-local">Démos en ligne</a>
           <a href="#contact">Contact</a>
         </p>
       </div>
@@ -446,6 +487,12 @@
       <h3 id="modalTitle"></h3>
       <p id="modalDesc"></p>
       <p class="modal-meta" id="modalMeta"></p>
+      <div id="modalActions" style="margin-top: 18px; display: none;">
+        <a id="modalLiveBtn" href="#" target="_blank" rel="noopener noreferrer" class="btn-primary" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+          <span>Tester le projet en ligne</span>
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
     </div>
   </div>
 
